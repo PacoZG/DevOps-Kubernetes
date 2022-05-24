@@ -1,0 +1,12 @@
+{
+  "name": "exercise-1.01",
+  "version": "1.0.0",
+  "description": "DevOps Kubernetes exercise 1.01",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
