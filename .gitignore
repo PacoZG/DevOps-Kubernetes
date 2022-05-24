@@ -1,1 +1,6 @@
-/material-example
+# folders
+material-example
+node_modules
+
+# files
+.env
