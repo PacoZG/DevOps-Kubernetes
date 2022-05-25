@@ -1,0 +1,59 @@
+Script started on Wed May 25 10:35:08 2022
+README.md		docker-compose.yml	exercise-1.02.txt	todo-app
+                                                                                                                                                                                          
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.02]1;..exercise-1.02
+[0m[27m[24m[J[01;32m➜  [36mexercise-1.02[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddocker    d  kk3d cluster start[?1l>[?2004l
+
+]2;k3d cluster start]1;k3d[36mINFO[0m[0000] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0000] Starting existing tools node k3d-k3s-default-tools... 
+[36mINFO[0m[0000] Starting Node 'k3d-k3s-default-tools'        
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting Node 'k3d-k3s-default-tools'        
+[36mINFO[0m[0001] Starting cluster 'k3s-default'               
+[36mINFO[0m[0001] Starting servers...                          
+[36mINFO[0m[0002] Starting Node 'k3d-k3s-default-server-0'     
+[36mINFO[0m[0005] Starting agents...                           
+[36mINFO[0m[0005] Starting Node 'k3d-k3s-default-agent-1'      
+[36mINFO[0m[0005] Starting Node 'k3d-k3s-default-agent-0'      
+[36mINFO[0m[0018] Starting helpers...                          
+[36mINFO[0m[0018] Starting Node 'k3d-k3s-default-tools'        
+[36mINFO[0m[0018] Starting Node 'k3d-k3s-default-serverlb'     
+[36mINFO[0m[0024] Injecting records for hostAliases (incl. host.k3d.internal) and for 5 network members into CoreDNS configmap... 
+[36mINFO[0m[0026] Started cluster 'k3s-default'                
+                                                                                                                                                                                          
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.02]1;..exercise-1.02
+[0m[27m[24m[J[01;32m➜  [36mexercise-1.02[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl get pods[?1l>[?2004l
+
+]2;kubectl get pods]1;kubectlNAME                               READY   STATUS    RESTARTS      AGE
+todo-server-dep-5c6fb79575-pq5dt   1/1     Running   2 (26s ago)   11m
+log-output-dep-57bc8f8d95-5ldsm    1/1     Running   3 (27s ago)   21h
+                                                                                                                                                                                          
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.02]1;..exercise-1.02
+[0m[27m[24m[J[01;32m➜  [36mexercise-1.02[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl get deployments[?1l>[?2004l
+
+]2;kubectl get deployments]1;kubectlNAME              READY   UP-TO-DATE   AVAILABLE   AGE
+todo-server-dep   1/1     1            1           11m
+log-output-dep    1/1     1            1           21h
+                                                                                                                                                                                          
+ 
+                                                                                                                                                                                        
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.02]1;..exercise-1.02
+[0m[27m[24m[J[01;31m➜  [36mexercise-1.02[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkubectl logs -f todo-server-dep-5c6fb79575-pd5dt[48D                                                [48Dkkubectl logs -f [7mtodo-server-dep-5c6fb79575-pq5dt[27m[32D[27mt[27mo[27md[27mo[27m-[27ms[27me[27mr[27mv[27me[27mr[27m-[27md[27me[27mp[27m-[27m5[27mc[27m6[27mf[27mb[27m7[27m9[27m5[27m7[27m5[27m-[27mp[27mq[27m5[27md[27mt[?1l>[?2004l
+
+]2;kubectl logs -f todo-server-dep-5c6fb79575-pq5dt]1;kubectl
+> todo-server@1.0.0 server
+> node index.js
+
+Server started in port 3001
+^C
+                                                                                                                                                                                          
+
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.02]1;..exercise-1.02
+[0m[27m[24m[J[01;31m➜  [36mexercise-1.02[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004heexit[?1l>[?2004l
+
+]2;exit]1;exit
+Script done on Wed May 25 10:38:09 2022

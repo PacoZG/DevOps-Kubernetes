@@ -1,13 +1,13 @@
-FROM node:alpine
+FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
 COPY package* ./
 
-RUN npm ci
+RUN npm install --quiet
 
 COPY . .
 
-ENV PORT 3001
+EXPOSE 3001
 
 CMD ["npm", "run", "server"]

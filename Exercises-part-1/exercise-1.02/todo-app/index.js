@@ -1,11 +1,10 @@
 require('dotenv').config()
 const app = require('./app')
+const config = require('./utils/config')
 const http = require('http')
-
-const PORT = process.env.PORT || 3001
 
 const server = http.createServer(app)
 
-server.listen(PORT, () => {
-  console.log(`Server started in port ${PORT}`)
+server.listen(config.PORT, () => {
+  console.log(`Server started in port ${config.PORT}`)
 })

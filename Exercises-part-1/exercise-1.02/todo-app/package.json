@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "todo-server",
   "version": "1.0.0",
   "description": "Exercises DevOps with Kubernetes",
   "main": "index.js",

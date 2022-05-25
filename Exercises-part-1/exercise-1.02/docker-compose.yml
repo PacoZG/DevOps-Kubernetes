@@ -7,5 +7,5 @@ services:
     build:
       context: ./todo-app
       dockerfile: Dockerfile
-    environment:
-      - PORT=3001
+    ports:
+      - 3001:3001
