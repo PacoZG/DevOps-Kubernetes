@@ -1,0 +1,401 @@
+Script started on Wed May 25 13:40:08 2022
+README.md		exercise-1.04.txt	project
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04]1;..exercise-1.04
+[0m[27m[24m[J[01;32m➜  [36mexercise-1.04[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hccd project[1m/[0m[0m [?1l>[?2004l
+
+]2;cd project]1;cd                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddockercompose         compose up[?1l>[?2004l
+
+]2;docker compose up]1;docker[1A[1B[0G[?25l[+] Running 0/0
+[37m ⠙ server Pulling                                                                                                                                                                       0.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ server Pulling                                                                                                                                                                       0.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠸ server Pulling                                                                                                                                                                       0.3s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠼ server Pulling                                                                                                                                                                       0.4s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠴ server Pulling                                                                                                                                                                       0.5s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠦ server Pulling                                                                                                                                                                       0.6s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠧ server Pulling                                                                                                                                                                       0.7s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠇ server Pulling                                                                                                                                                                       0.8s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠏ server Pulling                                                                                                                                                                       0.9s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠋ server Pulling                                                                                                                                                                       1.0s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠙ server Pulling                                                                                                                                                                       1.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ server Pulling                                                                                                                                                                       1.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠸ server Pulling                                                                                                                                                                       1.3s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠼ server Pulling                                                                                                                                                                       1.4s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠴ server Pulling                                                                                                                                                                       1.5s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠦ server Pulling                                                                                                                                                                       1.6s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠧ server Pulling                                                                                                                                                                       1.7s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠇ server Pulling                                                                                                                                                                       1.8s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠏ server Pulling                                                                                                                                                                       1.9s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠋ server Pulling                                                                                                                                                                       2.0s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠙ server Pulling                                                                                                                                                                       2.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ server Pulling                                                                                                                                                                       2.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[31m ⠿ server Error                                                                                                                                                                         2.2s
+[0m[?25h[1A[1B[0G[?25l[+] Building 0.0s (0/0)                                                                                                                                                                      
+[?25h[1A[0G[?25l[+] Building 0.0s (0/1)                                                                                                                                                                      
+ => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 30B                                                                                                                                                     0.0s
+[?25h[1A[1A[1A[0G[?25l[+] Building 0.2s (2/3)                                                                                                                                                                      
+[34m => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+[0m[34m => => transferring dockerfile: 176B                                                                                                                                                    0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 67B                                                                                                                                                        0.0s
+[0m => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                       0.1s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (2/3)                                                                                                                                                                      
+[34m => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+[0m[34m => => transferring dockerfile: 176B                                                                                                                                                    0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 67B                                                                                                                                                        0.0s
+[0m => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                       0.2s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (2/3)                                                                                                                                                                      
+[34m => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+[0m[34m => => transferring dockerfile: 176B                                                                                                                                                    0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 67B                                                                                                                                                        0.0s
+[0m => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                       0.4s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.6s (2/3)                                                                                                                                                                      
+[34m => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+[0m[34m => => transferring dockerfile: 176B                                                                                                                                                    0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 67B                                                                                                                                                        0.0s
+[0m => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                       0.5s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.8s (3/3)                                                                                                                                                                      
+[34m => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+[0m[34m => => transferring dockerfile: 176B                                                                                                                                                    0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 67B                                                                                                                                                        0.0s
+[0m[34m => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                       0.7s
+[0m[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.8s (10/10) FINISHED                                                                                                                                                           
+[34m => [internal] load build definition from Dockerfile                                                                                                                                    0.0s
+[0m[34m => => transferring dockerfile: 176B                                                                                                                                                    0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 67B                                                                                                                                                        0.0s
+[0m[34m => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                       0.7s
+[0m[34m => [1/5] FROM docker.io/library/node:16-alpine@sha256:1a9a71ea86aad332aa7740316d4111ee1bd4e890df47d3b5eff3e5bded3b3d10                                                                 0.0s
+[0m[34m => [internal] load build context                                                                                                                                                       0.0s
+[0m[34m => => transferring context: 40.98kB                                                                                                                                                    0.0s
+[0m[34m => CACHED [2/5] WORKDIR /usr/src/app                                                                                                                                                   0.0s
+[0m[34m => CACHED [3/5] COPY package* ./                                                                                                                                                       0.0s
+[0m[34m => CACHED [4/5] RUN npm install --quiet                                                                                                                                                0.0s
+[0m[34m => CACHED [5/5] COPY . .                                                                                                                                                               0.0s
+[0m[34m => exporting to image                                                                                                                                                                  0.0s
+[0m[34m => => exporting layers                                                                                                                                                                 0.0s
+[0m[34m => => writing image sha256:78beeb0a3536de6311995cb7deb4aca2e7f1f0d945be90fc13c9122739fd4de0                                                                                            0.0s
+[0m[34m => => naming to docker.io/library/project:v0.2                                                                                                                                         0.0s
+[0m[?25h
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+[1A[1B[0G[?25l[+] Running 1/0
+[34m ⠿ Container project  Recreated                                                                                                                                                         0.1s
+[0m[?25hAttaching to project
+[36mproject  | [0m
+[36mproject  | [0m> todo-server@1.0.0 server
+[36mproject  | [0m> node index.js
+[36mproject  | [0m
+[36mproject  | [0mServer started in port 3001
+^CGracefully stopping... (press Ctrl+C again to force)
+[1A[1B[0G[?25l[+] Running 0/0
+[37m ⠋ Container project  Stopping                                                                                                                                                          0.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠙ Container project  Stopping                                                                                                                                                          0.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ Container project  Stopping                                                                                                                                                          0.3s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠸ Container project  Stopping                                                                                                                                                          0.4s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠼ Container project  Stopping                                                                                                                                                          0.5s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠴ Container project  Stopping                                                                                                                                                          0.6s
+[0m[?25h[1A[1A[0G[?25l[34m[+] Running 1/1[0m
+[34m ⠿ Container project  Stopped                                                                                                                                                           0.6s
+[0m[?25hcanceled
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;31m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hdocker compose up  down[?1l>[?2004l
+
+]2;docker compose down]1;docker[1A[1B[0G[?25l[+] Running 2/0
+[34m ⠿ Container project        Removed                                                                                                                                                     0.0s
+[0m[34m ⠿ Network project_default  Removed                                                                                                                                                     0.0s
+[0m[?25h                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddocker push project:v0.2[?1l>[?2004l
+
+]2;docker push project:v0.2]1;dockerThe push refers to repository [docker.io/library/project]
+
+[1A[2K
+ea6dee66c108: Preparing 
+[1B
+[1A[2K
+900d9450cac5: Preparing 
+[1B
+[1A[2K
+0799f4fb000d: Preparing 
+[1B
+[1A[2K
+c7cde340c9de: Preparing 
+[1B
+[1A[2K
+60949e70d4cd: Preparing 
+[1B
+[1A[2K
+39d3e50cf304: Preparing 
+[1B
+[1A[2K
+77e1eb3025bf: Preparing 
+[1B
+[1A[2K
+4f4ce317c6bb: Preparing 
+[1B[3A[2K
+39d3e50cf304: Waiting 
+[3B[2A[2K
+77e1eb3025bf: Waiting 
+[2B[1A[2K
+4f4ce317c6bb: Waiting 
+[1Bdenied: requested access to the resource is denied
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;31m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddcker    d docker push sirpacoder/               tag project:v0.2 sirpacoder/projevt:v0.2t:v0.2 ct:v0.2[?1l>[?2004l
+
+]2;docker tag project:v0.2 sirpacoder/project:v0.2]1;docker                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hdocker tag project:v0.2 sirpacoder/project:v0.2[40Dpush [23P[12C                       [23Dsproject:v0.2[12Diproject:v0.2[12Drproject:v0.2[12D[1Cproject:v0.2[12Daproject:v0.2[12Dcproject:v0.2[12Doproject:v0.2[12Ddproject:v0.2[12Deproject:v0.2[12Drproject:v0.2[12D/project:v0.2[12D[?1l>[?2004l
+
+]2;docker push sirpacoder/project:v0.2]1;dockerThe push refers to repository [docker.io/sirpacoder/project]
+
+[1A[2K
+ea6dee66c108: Preparing 
+[1B
+[1A[2K
+900d9450cac5: Preparing 
+[1B
+[1A[2K
+0799f4fb000d: Preparing 
+[1B
+[1A[2K
+c7cde340c9de: Preparing 
+[1B
+[1A[2K
+60949e70d4cd: Preparing 
+[1B
+[1A[2K
+39d3e50cf304: Preparing 
+[1B
+[1A[2K
+77e1eb3025bf: Preparing 
+[1B
+[1A[2K
+4f4ce317c6bb: Preparing 
+[1B[2A[2K
+77e1eb3025bf: Waiting 
+[2B[1A[2K
+4f4ce317c6bb: Waiting 
+[1B[3A[2K
+39d3e50cf304: Waiting 
+[3B[8A[2K
+ea6dee66c108: Pushing [>                                                  ]     512B/40.57kB
+[8B[8A[2K
+ea6dee66c108: Pushing [==================================================>]  51.71kB
+[8B[6A[2K
+0799f4fb000d: Pushing [>                                                  ]     512B/39.62kB
+[6B[4A[2K
+60949e70d4cd: Pushing [==================================================>]     512B
+[4B[4A[2K
+60949e70d4cd: Pushing [==================================================>]  3.584kB
+[4B[6A[2K
+0799f4fb000d: Pushing [==================================================>]  43.52kB
+[6B[7A[2K
+900d9450cac5: Pushing [>                                                  ]  48.03kB/4.67MB
+[7B[5A[2K
+c7cde340c9de: Pushing  3.072kB
+[5B[7A[2K
+900d9450cac5: Pushing [=>                                                 ]  95.33kB/4.67MB
+[7B[7A[2K
+900d9450cac5: Pushing [========>                                          ]  751.6kB/4.67MB
+[7B[7A[2K
+900d9450cac5: Pushing [======================>                            ]  2.099MB/4.67MB
+[7B[7A[2K
+900d9450cac5: Pushing [==========================================>        ]  3.995MB/4.67MB
+[7B[7A[2K
+900d9450cac5: Pushing [==================================================>]  5.344MB
+[7B[5A[2K
+c7cde340c9de: Pushed 
+[5B[8A[2K
+ea6dee66c108: Pushed 
+[8B[4A[2K
+60949e70d4cd: Pushed 
+[4B[6A[2K
+0799f4fb000d: Pushed 
+[6B[7A[2K
+900d9450cac5: Pushed 
+[7B[3A[2K
+39d3e50cf304: Pushing [>                                                  ]  102.9kB/7.843MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [>                                                  ]  68.61kB/5.322MB
+[1B[3A[2K
+39d3e50cf304: Pushing [=>                                                 ]  201.2kB/7.843MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [=>                                                 ]  199.7kB/5.322MB
+[1B[2A[2K
+77e1eb3025bf: Pushing [>                                                  ]  530.9kB/97.79MB
+[2B[3A[2K
+39d3e50cf304: Pushing [===============>                                   ]  2.449MB/7.843MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [==========>                                        ]  1.159MB/5.322MB
+[1B[2A[2K
+77e1eb3025bf: Pushing [=>                                                 ]  2.184MB/97.79MB
+[2B[3A[2K
+39d3e50cf304: Pushing [=======================>                           ]  3.629MB/7.843MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [===============>                                   ]  1.626MB/5.322MB
+[1B[3A[2K
+39d3e50cf304: Pushing [============================>                      ]  4.513MB/7.843MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [=================>                                 ]  1.888MB/5.322MB
+[1B[2A[2K
+77e1eb3025bf: Pushing [=>                                                 ]  2.711MB/97.79MB
+[2B[3A[2K
+39d3e50cf304: Pushing [=====================================>             ]  5.843MB/7.843MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [=========================>                         ]  2.739MB/5.322MB
+[1B[2A[2K
+77e1eb3025bf: Pushing [=>                                                 ]  3.825MB/97.79MB
+[2B[3A[2K
+39d3e50cf304: Pushing [===============================================>   ]  7.416MB/7.843MB
+[3B[3A[2K
+39d3e50cf304: Pushing [==================================================>]  7.873MB
+[3B[1A[2K
+4f4ce317c6bb: Pushing [=====================================>             ]  3.984MB/5.322MB
+[1B[2A[2K
+77e1eb3025bf: Pushing [===>                                               ]  6.053MB/97.79MB
+[2B[1A[2K
+4f4ce317c6bb: Pushing [==================================================>]  5.601MB
+[1B[2A[2K
+77e1eb3025bf: Pushing [=====>                                             ]  9.952MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [=====>                                             ]  11.07MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [=======>                                           ]  14.41MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [========>                                          ]  16.64MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [==========>                                        ]  19.98MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [============>                                      ]  23.88MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [=============>                                     ]  27.22MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [===============>                                   ]  31.12MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [=================>                                 ]  34.46MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [===================>                               ]  37.81MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [=====================>                             ]  41.15MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [======================>                            ]  44.49MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [========================>                          ]  48.39MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [==========================>                        ]  51.73MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [============================>                      ]  55.63MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [==============================>                    ]  58.97MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [================================>                  ]  62.87MB/97.79MB
+[2B[3A[2K
+39d3e50cf304: Pushed 
+[3B[2A[2K
+77e1eb3025bf: Pushing [=================================>                 ]  66.21MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [===================================>               ]  70.11MB/97.79MB
+[2B[1A[2K
+4f4ce317c6bb: Pushed 
+[1B[2A[2K
+77e1eb3025bf: Pushing [=====================================>             ]   72.9MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [======================================>            ]  76.24MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [========================================>          ]  79.03MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [==========================================>        ]  83.48MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [=============================================>     ]  88.28MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [===============================================>   ]  92.01MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [================================================>  ]  94.66MB/97.79MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [==================================================>]  97.84MB
+[2B[2A[2K
+77e1eb3025bf: Pushing [==================================================>]  100.1MB
+[2B[2A[2K
+77e1eb3025bf: Pushed 
+[2Bv0.2: digest: sha256:e078f8ffe4ae04139a20d82901d582355e2ae3197adeefc87f93a9df76e11285 size: 1992
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl apply -f manifests/deployment.yml[?1l>[?2004l
+
+]2;kubectl apply -f manifests/deployment.yml]1;kubectldeployment.apps/project-dep configured
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl get pods[?1l>[?2004l
+
+]2;kubectl get pods]1;kubectlNAME                           READY   STATUS    RESTARTS      AGE
+log-output-dep-pnxw9           1/1     Running   1 (58m ago)   69m
+project-dep-7584b5f7c9-przhw   1/1     Running   0             44s
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl get delo  ployments[?1l>[?2004l
+
+]2;kubectl get deployments]1;kubectlNAME          READY   UP-TO-DATE   AVAILABLE   AGE
+project-dep   1/1     1            1           18m
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;32m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl logs -f [7mproject-dep-7584b5f7c9-przhw[27m[28D[27mp[27mr[27mo[27mj[27me[27mc[27mt[27m-[27md[27me[27mp[27m-[27m7[27m5[27m8[27m4[27mb[27m5[27mf[27m7[27mc[27m9[27m-[27mp[27mr[27mz[27mh[27mw[?1l>[?2004l
+
+]2;kubectl logs -f project-dep-7584b5f7c9-przhw]1;kubectl
+> todo-server@1.0.0 server
+> node index.js
+
+Server started in port 3001
+^C
+                                                                                                                                                                                            
+ 
+]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.04/project]1;..-1.04/project
+[0m[27m[24m[J[01;31m➜  [36mproject[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004heexit[?1l>[?2004l
+
+]2;exit]1;exit
+Script done on Wed May 25 13:45:25 2022
