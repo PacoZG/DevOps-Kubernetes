@@ -2,10 +2,10 @@ version: '3.9'
 
 services:
   server:
-    image: todo-server
-    container_name: todo-server
+    image: project-server:v0.1
+    container_name: project-server
     build:
-      context: ./todo-app
+      context: ./server
       dockerfile: Dockerfile
     ports:
       - 3001:3001

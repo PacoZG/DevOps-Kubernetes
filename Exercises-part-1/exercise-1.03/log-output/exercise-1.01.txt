@@ -1,0 +1,282 @@
+Script started on Tue May 24 10:24:43 2022
+Dockerfile		docker-compose.yml	exercise-1.01.txt	index.js		package-lock.json	package.json
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkk3e d cluster create -a 2[?1l>[?2004l
+]2;k3d cluster create -a 2]1;k3d[36mINFO[0m[0000] Prep: Network                                
+[36mINFO[0m[0000] Re-using existing network 'k3d-k3s-default' (cf63069df3de43ed28f8c4ac47e1e21d29ea00da1755aa92c46c10df30493914) 
+[36mINFO[0m[0000] Created image volume k3d-k3s-default-images  
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0001] Creating node 'k3d-k3s-default-server-0'     
+[36mINFO[0m[0001] Pulling image 'ghcr.io/k3d-io/k3d-tools:5.4.1' 
+[36mINFO[0m[0002] Starting Node 'k3d-k3s-default-tools'        
+[36mINFO[0m[0003] Pulling image 'docker.io/rancher/k3s:v1.22.7-k3s1' 
+[36mINFO[0m[0012] Creating node 'k3d-k3s-default-agent-0'      
+[36mINFO[0m[0012] Creating node 'k3d-k3s-default-agent-1'      
+[36mINFO[0m[0012] Creating LoadBalancer 'k3d-k3s-default-serverlb' 
+[36mINFO[0m[0013] Pulling image 'ghcr.io/k3d-io/k3d-proxy:5.4.1' 
+[36mINFO[0m[0016] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0016] Starting new tools node...                   
+[36mINFO[0m[0016] Starting Node 'k3d-k3s-default-tools'        
+[36mINFO[0m[0017] Starting cluster 'k3s-default'               
+[36mINFO[0m[0017] Starting servers...                          
+[36mINFO[0m[0017] Starting Node 'k3d-k3s-default-server-0'     
+[36mINFO[0m[0021] Starting agents...                           
+[36mINFO[0m[0021] Starting Node 'k3d-k3s-default-agent-0'      
+[36mINFO[0m[0021] Starting Node 'k3d-k3s-default-agent-1'      
+[36mINFO[0m[0033] Starting helpers...                          
+[36mINFO[0m[0033] Starting Node 'k3d-k3s-default-serverlb'     
+[36mINFO[0m[0039] Injecting records for hostAliases (incl. host.k3d.internal) and for 5 network members into CoreDNS configmap... 
+[36mINFO[0m[0042] Cluster 'k3s-default' created successfully!  
+[36mINFO[0m[0042] You can now use it like this:                
+kubectl cluster-info
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h[7mk3d kubeconfig get k3s-default[27m[30D[27mk[27m3[27md[27m [27mk[27mu[27mb[27me[27mc[27mo[27mn[27mf[27mi[27mg[27m [27mg[27me[27mt[27m [27mk[27m3[27ms[27m-[27md[27me[27mf[27ma[27mu[27ml[27mt[?1l>[?2004l
+]2;k3d kubeconfig get k3s-default]1;k3d---
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkekNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdGMyVnkKZG1WeUxXTmhRREUyTlRNek56Y3hNVGt3SGhjTk1qSXdOVEkwTURjeU5URTVXaGNOTXpJd05USXhNRGN5TlRFNQpXakFqTVNFd0h3WURWUVFEREJock0zTXRjMlZ5ZG1WeUxXTmhRREUyTlRNek56Y3hNVGt3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFSaEQ0Zm1yMjNRYmd2d2cxQXo0OTRKWFMvU3ZhZXJJdS9oOWQ5R3RHNnEKd1ZLMTBkaXJXTXZORG10QlllQnQvb2twS0tZNUtTRm9HWTJJNHNYaTdIeHBvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVVZOMWZpQWlITHRHODl3VThmSkkwCklST2thMEV3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQUpVeEI3U2VOVTFaVWU3UzJnSjJBMUV4amRnTlZUbisKekNGSUNMZmRyKzZDQWlBN0JRbS9nbkZYZ0J5eXpNQlZieW1YVTErTFE3VHBkc1FRdlBlVitTd0YxQT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://0.0.0.0:54415
+  name: k3d-k3s-default
+contexts:
+- context:
+    cluster: k3d-k3s-default
+    user: admin@k3d-k3s-default
+  name: k3d-k3s-default
+current-context: k3d-k3s-default
+kind: Config
+preferences: {}
+users:
+- name: admin@k3d-k3s-default
+  user:
+    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJrVENDQVRlZ0F3SUJBZ0lJUmV0YVZZUm1aRTh3Q2dZSUtvWkl6ajBFQXdJd0l6RWhNQjhHQTFVRUF3d1kKYXpOekxXTnNhV1Z1ZEMxallVQXhOalV6TXpjM01URTVNQjRYRFRJeU1EVXlOREEzTWpVeE9Wb1hEVEl6TURVeQpOREEzTWpVeE9Wb3dNREVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhGVEFUQmdOVkJBTVRESE41CmMzUmxiVHBoWkcxcGJqQlpNQk1HQnlxR1NNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJJWmNDcHhZL05tYTYrMkEKM29HN0dZWlU2aVMyTFhEaktuWmlrSm5qd2daR201NklDaGFiNE5JV0IrUHpqOHd1dEg4VjlhMmltaDRrQVBMQgozZVcrL1RpalNEQkdNQTRHQTFVZER3RUIvd1FFQXdJRm9EQVRCZ05WSFNVRUREQUtCZ2dyQmdFRkJRY0RBakFmCkJnTlZIU01FR0RBV2dCUTVGcDVMaDZQUHUvSnBPcVlSek4zY2JZZjhtekFLQmdncWhrak9QUVFEQWdOSUFEQkYKQWlFQTNjbElybW9ESVNCT3NiZzdraEhobVcyZU1LQ0lkMS8wZlgvOGh1cm84am9DSURWekJ4RjhjcGkrV3k4TApyYy9YejBRcXFXWnJadHdqeURTOTA4TWM0cnhCCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0KLS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkekNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUUREQmhyTTNNdFkyeHAKWlc1MExXTmhRREUyTlRNek56Y3hNVGt3SGhjTk1qSXdOVEkwTURjeU5URTVXaGNOTXpJd05USXhNRGN5TlRFNQpXakFqTVNFd0h3WURWUVFEREJock0zTXRZMnhwWlc1MExXTmhRREUyTlRNek56Y3hNVGt3V1RBVEJnY3Foa2pPClBRSUJCZ2dxaGtqT1BRTUJCd05DQUFSaE9nVkNEMTIvNGlid1NvOFFkMGluaGFhQlA3dDhMVUoxUGlvVVAzai8KdWNFY2NNYnA0UmluTWlaQ1Y0UUg4d0pTdUpUY3BoYXVqR3MvZ3NWRTI2cTdvMEl3UURBT0JnTlZIUThCQWY4RQpCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVU9SYWVTNGVqejd2eWFUcW1FY3pkCjNHMkgvSnN3Q2dZSUtvWkl6ajBFQXdJRFNBQXdSUUloQUtSTnpRT25YMkhCQkNzSzQ2MHNMSkExWE5BMTF2VlYKeFVUUnhQY0p3bVhyQWlBendXSkJaNEdDVk9tcjYyWTlpMm1kaDJ6dkIvOU5OQlZEa3gxTlA3TTFIQT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    client-key-data: LS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSU8zektkaGdiUFRFSkNEUkM0Z01LQ1pKMld5SnlrT0doaUljZnFIL2laY1BvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFaGx3S25GajgyWnJyN1lEZWdic1pobFRxSkxZdGNPTXFkbUtRbWVQQ0JrYWJub2dLRnB2ZwowaFlINC9PUHpDNjBmeFgxcmFLYUhpUUE4c0hkNWI3OU9BPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h[7mkubectl config use-context k3d-k3s-default[27m[42D[27mk[27mu[27mb[27me[27mc[27mt[27ml[27m [27mc[27mo[27mn[27mf[27mi[27mg[27m [27mu[27ms[27me[27m-[27mc[27mo[27mn[27mt[27me[27mx[27mt[27m [27mk[27m3[27md[27m-[27mk[27m3[27ms[27m-[27md[27me[27mf[27ma[27mu[27ml[27mt[?1l>[?2004l
+]2;kubectl config use-context k3d-k3s-default]1;kubectlSwitched to context "k3d-k3s-default".
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h[7mkubectl cluster-info[27m[20D[27mk[27mu[27mb[27me[27mc[27mt[27ml[27m [27mc[27ml[27mu[27ms[27mt[27me[27mr[27m-[27mi[27mn[27mf[27mo[?1l>[?2004l
+]2;kubectl cluster-info]1;kubectl[0;32mKubernetes control plane[0m is running at [0;33mhttps://0.0.0.0:54415[0m
+[0;32mCoreDNS[0m is running at [0;33mhttps://0.0.0.0:54415/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy[0m
+[0;32mMetrics-server[0m is running at [0;33mhttps://0.0.0.0:54415/api/v1/namespaces/kube-system/services/https:metrics-server:https/proxy[0m
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddocker compose up[?1l>[?2004l
+]2;docker compose up]1;docker[1A[1B[0G[?25l[+] Running 0/0
+[37m ⠋ log-output Pulling                                                                                                                                                            0.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠙ log-output Pulling                                                                                                                                                            0.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ log-output Pulling                                                                                                                                                            0.3s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠸ log-output Pulling                                                                                                                                                            0.4s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠼ log-output Pulling                                                                                                                                                            0.5s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠴ log-output Pulling                                                                                                                                                            0.6s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠦ log-output Pulling                                                                                                                                                            0.7s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠧ log-output Pulling                                                                                                                                                            0.8s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠇ log-output Pulling                                                                                                                                                            0.9s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠏ log-output Pulling                                                                                                                                                            1.0s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠋ log-output Pulling                                                                                                                                                            1.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠙ log-output Pulling                                                                                                                                                            1.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ log-output Pulling                                                                                                                                                            1.3s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠸ log-output Pulling                                                                                                                                                            1.4s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠼ log-output Pulling                                                                                                                                                            1.5s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠴ log-output Pulling                                                                                                                                                            1.6s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠦ log-output Pulling                                                                                                                                                            1.7s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠧ log-output Pulling                                                                                                                                                            1.8s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠇ log-output Pulling                                                                                                                                                            1.9s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[31m ⠿ log-output Error                                                                                                                                                              2.0s
+[0m[?25h[1A[1B[0G[?25l[+] Building 0.0s (0/0)                                                                                                                                                               
+[?25h[1A[0G[?25l[+] Building 0.0s (1/1)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[?25h[1A[1A[1A[0G[?25l[+] Building 0.2s (2/3)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   0.1s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.3s (2/3)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   0.2s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.5s (2/3)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   0.4s
+[?25h[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.6s (2/4)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   0.5s
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[?25h[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.7s (3/4)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   0.7s
+[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 0.9s (3/4)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   0.8s
+[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.0s (3/4)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   1.0s
+[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.2s (3/4)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   1.1s
+[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.3s (3/4)                                                                                                                                                               
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   1.3s
+[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[?25h[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.4s (10/11)                                                                                                                                                             
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m[34m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   1.3s
+[0m[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[34m => [1/5] FROM docker.io/library/node:alpine@sha256:0677e437543d10f6cb050d92c792a14e5eb84340e3d5b4c25a88baa723d8a4ae                                                             0.0s
+[0m[34m => [internal] load build context                                                                                                                                                0.0s
+[0m[34m => => transferring context: 25.34kB                                                                                                                                             0.0s
+[0m[34m => CACHED [2/5] WORKDIR /usr/src/app                                                                                                                                            0.0s
+[0m[34m => CACHED [3/5] COPY package* ./                                                                                                                                                0.0s
+[0m[34m => CACHED [4/5] RUN npm ci                                                                                                                                                      0.0s
+[0m[34m => [5/5] COPY . .                                                                                                                                                               0.0s
+[0m => exporting to image                                                                                                                                                           0.0s
+[34m => => exporting layers                                                                                                                                                          0.0s
+[0m[34m => => writing image sha256:aa41e602b023d462ef6193c9e4772f4c84b5f0a2df630bced8386894de9a8821                                                                                     0.0s
+[0m => => naming to docker.io/library/log-output                                                                                                                                    0.0s
+[?25h[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[1A[0G[?25l[+] Building 1.4s (11/11) FINISHED                                                                                                                                                    
+[34m => [internal] load build definition from Dockerfile                                                                                                                             0.0s
+[0m[34m => => transferring dockerfile: 31B                                                                                                                                              0.0s
+[0m[34m => [internal] load .dockerignore                                                                                                                                                0.0s
+[0m[34m => => transferring context: 2B                                                                                                                                                  0.0s
+[0m[34m => [internal] load metadata for docker.io/library/node:alpine                                                                                                                   1.3s
+[0m[34m => [auth] library/node:pull token for registry-1.docker.io                                                                                                                      0.0s
+[0m[34m => [1/5] FROM docker.io/library/node:alpine@sha256:0677e437543d10f6cb050d92c792a14e5eb84340e3d5b4c25a88baa723d8a4ae                                                             0.0s
+[0m[34m => [internal] load build context                                                                                                                                                0.0s
+[0m[34m => => transferring context: 25.34kB                                                                                                                                             0.0s
+[0m[34m => CACHED [2/5] WORKDIR /usr/src/app                                                                                                                                            0.0s
+[0m[34m => CACHED [3/5] COPY package* ./                                                                                                                                                0.0s
+[0m[34m => CACHED [4/5] RUN npm ci                                                                                                                                                      0.0s
+[0m[34m => [5/5] COPY . .                                                                                                                                                               0.0s
+[0m[34m => exporting to image                                                                                                                                                           0.0s
+[0m[34m => => exporting layers                                                                                                                                                          0.0s
+[0m[34m => => writing image sha256:aa41e602b023d462ef6193c9e4772f4c84b5f0a2df630bced8386894de9a8821                                                                                     0.0s
+[0m[34m => => naming to docker.io/library/log-output                                                                                                                                    0.0s
+[0m[?25h
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+[1A[1B[0G[?25l[+] Running 2/0
+[34m ⠿ Network exercise-101_default  Created                                                                                                                                         0.0s
+[0m[34m ⠿ Container log-output          Created                                                                                                                                         0.0s
+[0m[?25hAttaching to log-output
+[36mlog-output  | [0m
+[36mlog-output  | [0m> exercise-1.01@1.0.0 start
+[36mlog-output  | [0m> node index.js
+[36mlog-output  | [0m
+[36mlog-output  | [0m2022-05-24T09:55:23.033Z: y5cg0tj1-axyx-sqp9-9noo-22ia0jlc
+[36mlog-output  | [0m2022-05-24T09:55:28.036Z: ya8va0gl-ujse-jvaw-f2hu-d8c0tc7w
+[36mlog-output  | [0m2022-05-24T09:55:33.042Z: dq9h57jb-vuea-jr71-4g4h-cjydskv2
+^CGracefully stopping... (press Ctrl+C again to force)
+[1A[1B[0G[?25l[+] Running 0/0
+[37m ⠋ Container log-output  Stopping                                                                                                                                                0.1s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠙ Container log-output  Stopping                                                                                                                                                0.2s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠹ Container log-output  Stopping                                                                                                                                                0.3s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠸ Container log-output  Stopping                                                                                                                                                0.4s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠼ Container log-output  Stopping                                                                                                                                                0.5s
+[0m[?25h[1A[1A[0G[?25l[+] Running 0/1
+[37m ⠴ Container log-output  Stopping                                                                                                                                                0.6s
+[0m[?25h[1A[1A[0G[?25l[34m[+] Running 1/1[0m
+[34m ⠿ Container log-output  Stopped                                                                                                                                                 0.7s
+[0m[?25hcanceled
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;31m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hdocker compose up   down[?1l>[?2004l
+]2;docker compose down]1;docker[1A[1B[0G[?25l[+] Running 2/0
+[34m ⠿ Container log-output          Removed                                                                                                                                         0.0s
+[0m[34m ⠿ Network exercise-101_default  Removed                                                                                                                                         0.1s
+[0m[?25h[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddocker tag log-output isrpacoder/log-output[P[18C [19D[P[18C [19D[P[18C [19Dspacoder/log-output[18Dipacoder/log-output[18Drpacoder/log-output[18D[?1l>[?2004l
+]2;docker tag log-output sirpacoder/log-output]1;docker[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hddocker push sirpacoder/log-p output[?1l>[?2004l
+]2;docker push sirpacoder/log-output]1;dockerUsing default tag: latest
+The push refers to repository [docker.io/sirpacoder/log-output]
+
+[1A[2K4a9b92de5a22: Preparing [1B
+[1A[2K386dc1740f2d: Preparing [1B
+[1A[2K5f1baf96d1bf: Preparing [1B
+[1A[2K62429b4f3785: Preparing [1B
+[1A[2K9b3cd8a5af8b: Preparing [1B
+[1A[2K169b2bbd9c27: Preparing [1B
+[1A[2K4331b5ca4315: Preparing [1B
+[1A[2K4f4ce317c6bb: Preparing [1B[3A[2K169b2bbd9c27: Waiting [3B[2A[2K4331b5ca4315: Waiting [2B[1A[2K4f4ce317c6bb: Waiting [1B[8A[2K4a9b92de5a22: Pushing [>                                                  ]     512B/26.3kB[8B[8A[2K4a9b92de5a22: Pushing [==================================================>]   34.3kB[8B[5A[2K62429b4f3785: Pushing  3.072kB[5B[6A[2K5f1baf96d1bf: Pushing [==================================================>]     512B[6B[6A[2K5f1baf96d1bf: Pushing [==================================================>]  4.608kB[6B[7A[2K386dc1740f2d: Pushing [========>                                          ]     512B/3.039kB[7B[7A[2K386dc1740f2d: Pushing [==================================================>]  6.656kB[7B[4A[2K9b3cd8a5af8b: Pushing [==================================================>]     512B[4B[4A[2K9b3cd8a5af8b: Pushing [==================================================>]  3.584kB[4B[7A[2K386dc1740f2d: Pushed [7B[5A[2K62429b4f3785: Pushed [5B[6A[2K5f1baf96d1bf: Pushed [6B[8A[2K4a9b92de5a22: Pushed [8B[4A[2K9b3cd8a5af8b: Pushed [4B[3A[2K169b2bbd9c27: Pushing [>                                                  ]  102.9kB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [=>                                                 ]  201.2kB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [===============>                                   ]  2.449MB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [=======================>                           ]  3.629MB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [=============================>                     ]  4.612MB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [=====================================>             ]  5.849MB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [=================================================> ]  7.716MB/7.857MB[3B[3A[2K169b2bbd9c27: Pushing [==================================================>]  7.888MB[3B[2A[2K4331b5ca4315: Pushing [>                                                  ]  536.6kB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [>                                                  ]   2.19MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [>                                                  ]  2.716MB/156.6MB[2B[1A[2K4f4ce317c6bb: Mounted from library/golang [1B[2A[2K4331b5ca4315: Pushing [=>                                                 ]   3.83MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=>                                                 ]  6.058MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===>                                               ]  9.958MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [====>                                              ]  13.86MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=====>                                             ]   17.2MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [======>                                            ]   21.1MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [========>                                          ]  25.56MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=========>                                         ]   28.9MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==========>                                        ]  31.68MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===========>                                       ]  35.58MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [============>                                      ]  38.92MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=============>                                     ]  42.27MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==============>                                    ]  45.61MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===============>                                   ]  48.39MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [================>                                  ]  52.29MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=================>                                 ]  55.64MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===================>                               ]  59.54MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [====================>                              ]  62.88MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [====================>                              ]  65.66MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [======================>                            ]  69.01MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=======================>                           ]  72.35MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [========================>                          ]  75.69MB/156.6MB[2B[3A[2K169b2bbd9c27: Pushed [3B[2A[2K4331b5ca4315: Pushing [=========================>                         ]  79.03MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==========================>                        ]  82.38MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===========================>                       ]  85.72MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===========================>                       ]  86.83MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [============================>                      ]  89.61MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=============================>                     ]  93.93MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===============================>                   ]  98.24MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [================================>                  ]  102.5MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==================================>                ]  106.8MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===================================>               ]  111.1MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [====================================>              ]  115.4MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [======================================>            ]  119.6MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=======================================>           ]  123.9MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [========================================>          ]  128.1MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==========================================>        ]  132.4MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===========================================>       ]  136.7MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=============================================>     ]  140.9MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==============================================>    ]  145.2MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [===============================================>   ]  149.5MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [================================================>  ]  152.6MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [=================================================> ]  155.3MB/156.6MB[2B[2A[2K4331b5ca4315: Pushing [==================================================>]  158.5MB[2B[2A[2K4331b5ca4315: Pushing [==================================================>]  160.8MB[2B[2A[2K4331b5ca4315: Pushed [2Blatest: digest: sha256:a5d3053e5e364780fcf01fd4b6e3ba862799ebfd0b2d6173342649fe82813733 size: 1988
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl create deployment log-output-dep ii  --image=sirpacoder/log-output[?1l>[?2004l
+]2;kubectl create deployment log-output-dep --image=sirpacoder/log-output]1;kubectldeployment.apps/log-output-dep created
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl get pods[?1l>[?2004l
+]2;kubectl get pods]1;kubectlNAME                              READY   STATUS    RESTARTS   AGE
+log-output-dep-57bc8f8d95-5ldsm   1/1     Running   0          14s
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hkkubectl get deployments[?1l>[?2004l
+]2;kubectl get deployments]1;kubectlNAME             READY   UP-TO-DATE   AVAILABLE   AGE
+log-output-dep   1/1     1            1           27s
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h[7mkubectl logs -f[27m[15D[27mk[27mu[27mb[27me[27mc[27mt[27ml[27m [27ml[27mo[27mg[27ms[27m [27m-[27mf log-out       [7mlog-output-dep-57bc8f8d95-5ldsm [27m[32D[27ml[27mo[27mg[27m-[27mo[27mu[27mt[27mp[27mu[27mt[27m-[27md[27me[27mp[27m-[27m5[27m7[27mb[27mc[27m8[27mf[27m8[27md[27m9[27m5[27m-[27m5[27ml[27md[27ms[27mm[27m [?1l>[?2004l
+]2;kubectl logs -f log-output-dep-57bc8f8d95-5ldsm]1;kubectl
+> exercise-1.01@1.0.0 start
+> node index.js
+
+2022-05-24T09:58:24.445Z: d8y0r0d3-5iwi-qzti-wqtg-2aesinid
+2022-05-24T09:58:29.454Z: wvyg8j61-5j30-9o67-b38x-2a85m2ut
+2022-05-24T09:58:34.458Z: hh8jsum1-t2vg-m9sx-rcof-og3lge9i
+2022-05-24T09:58:39.469Z: fnlf80yi-y2da-5rpw-w7tj-p61hhh2h
+2022-05-24T09:58:44.473Z: htckwsnm-nj5k-9pb7-iqw1-3szbllt9
+2022-05-24T09:58:49.480Z: vcflwwfg-pnz6-worh-wo7t-wnwgmp3x
+2022-05-24T09:58:54.486Z: io42cm0d-3sam-wqfi-riwg-bxafszew
+2022-05-24T09:58:59.487Z: o53lmvwq-mnfl-awvz-u1qt-f6023h8j
+2022-05-24T09:59:04.489Z: ljg0x5jt-r2r2-lmhv-5nkr-3uebfleo
+2022-05-24T09:59:09.492Z: 1oifp2mn-zm97-9csa-xh8f-vhh9j26y
+2022-05-24T09:59:14.498Z: x31x60xn-n02e-333s-54f9-fhcerekj
+2022-05-24T09:59:19.501Z: mbjt4zft-dqzj-sgrs-hg35-f46377dj
+2022-05-24T09:59:24.506Z: 1pnc4u1j-66vf-gxpj-cura-d7y9kc3l
+2022-05-24T09:59:29.512Z: 8uk9pb0h-mf7y-rmcp-2uo1-oodtoblf
+2022-05-24T09:59:34.518Z: u1ngrms6-7x2j-kj5k-51vs-3rso8btr
+2022-05-24T09:59:39.524Z: v41ayt42-1ynu-d9no-bwhr-ei8hgahz
+^Z
+[1]  + 11672 suspended  kubectl logs -f log-output-dep-57bc8f8d95-5ldsm
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;31m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004heexit[?1l>[?2004l
+]2;exit]1;exitzsh: you have suspended jobs.
+[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;sirpacoder@Franciscos-MacBook-Pro:~/projects/DevOps-Kubernetes/Exercises-part-1/exercise-1.01]1;..exercise-1.01[0m[27m[24m[J[01;32m➜  [36mexercise-1.01[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004heeie exit[?1l>[?2004l
+]2;exit]1;exit
+Script done on Tue May 24 12:59:50 2022
