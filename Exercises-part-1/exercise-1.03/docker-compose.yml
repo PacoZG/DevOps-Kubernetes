@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   log-output:
-    image: log-output:0.01
+    image: log-output:v0.2
     build:
       context: ./log-output
       dockerfile: Dockerfile

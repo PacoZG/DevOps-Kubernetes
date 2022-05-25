@@ -34,6 +34,8 @@ services:
       dockerfile: Dockerfile
     container_name: log-output
 ```
+
+The image can be found [here](https://hub.docker.com/r/sirpacoder/log-output)
 Below we can find the commands used in the terminal to build the image, push it to Docker Hub and create en run the Kubernetes cluster
 
 ```

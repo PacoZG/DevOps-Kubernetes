@@ -2,8 +2,8 @@ version: '3.9'
 
 services:
   server:
-    image: project-server:v0.1
-    container_name: project-server
+    image: project:v0.1
+    container_name: project
     build:
       context: ./server
       dockerfile: Dockerfile
