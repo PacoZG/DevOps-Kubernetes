@@ -52,6 +52,8 @@ $ docker tag log-output sirpacoder/log-output
 
 $ docker push sirpacoder/log-output
 ```
+The image can be found [here](https://hub.docker.com/r/sirpacoder/log-output)
+
 ```
 $ kubectl create deployment log-output-dep --image=sirpacoder/log-output
 
