@@ -28,4 +28,4 @@ and then created a new cluster using the following script
 $ k3d cluster create --port 3001:30081@agent:0 -p 3000:80@loadbalancer --agents 2
 ```
 
-with that I was able to access the [http://localhost:3001api/todos](http://localhost:3001/api/todos) port from the broswer
+with that I was able to access the [http://localhost:3001/api/todos](http://localhost:3001/api/todos) port from the broswer
