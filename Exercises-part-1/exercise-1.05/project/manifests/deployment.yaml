@@ -12,20 +12,11 @@ spec:
         app: project
     spec:
       containers:
-      - name: project-server
-        image: sirpacoder/project-server:v0.3
+      - name: project
+        image: sirpacoder/project:v0.3
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 3001
-        containers:
-      - name: project-client
-        image: sirpacoder/project-client:v0.3
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 3000

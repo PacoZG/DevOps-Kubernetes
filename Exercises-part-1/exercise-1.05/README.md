@@ -1,54 +1,38 @@
-# Exercise 1.02: Project v0.2
+# Exercise 1.05: Project v0.3
 
 ### Javascript implementation based on app1 from material example
 
-The steps were pretty much the same as in the exercise 1.01 and are as we can see on the scripts bellow
-Below we can find the commands used in the terminal to build the image, push it to Docker Hub and create en run the Kubernetes cluster
+steps after running the deployment
 
 ```
-$ docker-compose up
+$ kubectl get po
+NAME                                 READY   STATUS    RESTARTS      AGE
+log-output-dep-pnxw9                 1/1     Running   4 (46h ago)   4d21h
+hashresponse-dep-869df48685-z8nfl    1/1     Running   2 (46h ago)   3d1h
+hashgenerator-dep-548d4d6c8d-kjkk4   1/1     Running   3 (46h ago)   4d18h
+project-dep-648c74866b-9bl2r         1/1     Running   0             19s
+```
 
-$ docker tag project:v0.2 sirpacoder/project:v0.2
-
-$ docker push sirpacoder/project:v0.2
+```
+$ kubectl port-forward project-dep-648c74866b-9bl2r 3001:3001
 ```
 
 The image can be found [here](https://hub.docker.com/r/sirpacoder/project)
+___
 
-### Once I have my new image created and deployed to Docker Hub I could configured my deployment.yml file
+We can also find the small todo frontend client [here](./project//client/)
 
-```yml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: project-dep
-spec:
-  selector:
-    matchLabels:
-      app: project
-  template:
-    metadata:
-      labels:
-        app: project
-    spec:
-      containers:
-      - name: project
-        image: sirpacoder/project:v0.2
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 3001
-```
+The frontend is a React project and can be run as usual with the following:
 
-```
-$ kubectl apply -f manifests/deployment.yaml
+In the project directory, you can run:
 
-$ kubectl get pods
+### `npm install`
+To install all dependencies.
 
-$ kubectl get deployments
+### `npm start`
 
-$ kubectl logs -f project-dep-7584b5f7c9-przhw
-```
-The result of the command used can be found in the [script file](./exercise-1.04.txt)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.

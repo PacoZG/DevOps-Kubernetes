@@ -1,4 +1,4 @@
-# Exercise 1.01: Getting started
+# Exercise 1.03: Declarative approach
 
 ### Javascript implementation based on app1 from material example
 ```javascript

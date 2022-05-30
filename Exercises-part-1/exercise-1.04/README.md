@@ -1,9 +1,6 @@
-# Exercise 1.02: Project v0.2
+# Exercise 1.04: Project v0.2
 
-### Javascript implementation based on app1 from material example
-
-The steps were pretty much the same as in the exercise 1.01 and are as we can see on the scripts bellow
-Below we can find the commands used in the terminal to build the image, push it to Docker Hub and create en run the Kubernetes cluster
+### Javascript implementation 
 
 ```
 $ docker-compose up
