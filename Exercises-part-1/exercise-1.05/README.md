@@ -18,6 +18,8 @@ $ kubectl port-forward project-dep-648c74866b-9bl2r 3001:3001
 ```
 
 The image can be found [here](https://hub.docker.com/r/sirpacoder/project)
+
+We can test the projects response doing a GET request to `http://localhost:3001/api/todos` using Postman or use the small client application bellow.
 ___
 
 We can also find the small todo frontend client [here](./project//client/)
