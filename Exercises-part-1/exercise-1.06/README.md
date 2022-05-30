@@ -1,8 +1,8 @@
 # Exercise 1.06: Project v0.4
 
-### This exercise has the same content in the root folder as in previous exercise, the only difference is the implementarion of the service.yaml file and the commands used to be able to access to the deployment port via the browser.
+### This exercise has the same content in the root folder as in previous exercise, the only difference is the implementation of the service.yaml file and the commands used to be able to access to the deployment port via the browser.
 
-I implemented the service.yaml [file](./project//manifests/service.yaml) with the following configuration:
+I implemented the service.yaml [file](./project/manifests/service.yaml) with the following configuration:
 
 ```yaml
 apiVersion: v1
