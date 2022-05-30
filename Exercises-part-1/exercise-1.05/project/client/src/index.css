@@ -14,14 +14,15 @@ code {
 
 .App {
   min-height: 100vh;
-  background-color: aqua;
-  opacity: .7;
+  background-color: burlywood;
+  /* opacity: .5; */
 }
 
 .TodoList {
   padding: 20px;
   border-style: solid;
-  border-width: 5px 10px 5px 10px; /* 25px top, 10px right, 4px bottom and 35px left */
+  border-radius: 5px;
+  margin: 0px;
 }
 
 .todo {
@@ -29,16 +30,22 @@ code {
   border-width: 2px;
   margin-bottom: 10px;
   padding: 20px;
+  background-color: crimson;
 }
 
 .text {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
   margin: 0px;
   padding-bottom: 5px;
 }
 
 .status {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0px;
+  font-weight: 700;
+}
+
+.span {
+  font-weight: 300;
 }
