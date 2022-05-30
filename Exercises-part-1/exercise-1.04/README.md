@@ -12,7 +12,7 @@ $ docker push sirpacoder/project:v0.2
 
 The image can be found [here](https://hub.docker.com/r/sirpacoder/project)
 
-### Once I have my new image created and deployed to Docker Hub I could configured my deployment.yml file
+### Once I have my new image created and deployed to Docker Hub I could configured my deployment.yaml file
 
 ```yml
 apiVersion: apps/v1
