@@ -64,6 +64,8 @@ spec:
     targetPort: 3001
 ```
 
+We can find the image on my Docker Hub [project](https://hub.docker.com/r/sirpacoder/project)
+
 then created a new cluster using the following script
 
 ```

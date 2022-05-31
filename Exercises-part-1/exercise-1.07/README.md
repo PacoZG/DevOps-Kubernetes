@@ -74,3 +74,5 @@ $ kubectl apply -f manifests/
 ```
 
 with that I was able to access the [http://localhost:8080/api/strings](http://localhost:8080/api/strings) port from the broswer
+
+The image are available in my Docker Hub at [log-output](https://hub.docker.com/r/sirpacoder/log-output)

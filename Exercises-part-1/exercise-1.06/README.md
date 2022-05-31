@@ -29,3 +29,5 @@ $ k3d cluster create --port 3001:30081@agent:0 -p 3000:80@loadbalancer --agents 
 ```
 
 with that I was able to access the [http://localhost:3001/api/todos](http://localhost:3001/api/todos) port from the broswer
+
+The image are available in my Docker Hub at [project](https://hub.docker.com/r/sirpacoder/project)

@@ -125,3 +125,5 @@ $ kubectl apply -f manifests/
 with that I was able to access the [http://localhost:8080/api/todos](http://localhost:8080/api/todos) port from the broswer
 
 **The log-out app can be found [here](./log-output/) and the pingpong app can be found [here](./pingpong/)**
+
+The images are available in my Docker Hub at [pinpong](https://hub.docker.com/r/sirpacoder/pingpong) & [log-output](https://hub.docker.com/r/sirpacoder/log-output)
