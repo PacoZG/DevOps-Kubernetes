@@ -8,6 +8,6 @@ RUN npm ci
 
 COPY index.js /usr/src/app/
 
-EXPOSE 3001
+EXPOSE 5000
 
 CMD ["npm", "start"]
