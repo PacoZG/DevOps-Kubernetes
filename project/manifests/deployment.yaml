@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-server
+  template:
+    metadata:
+      labels:
+        app: project-server
+    spec:
+      containers:
+      - name: project-server
+        image: sirpacoder/project:v0.5
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
