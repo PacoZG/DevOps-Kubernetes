@@ -22,7 +22,7 @@ The image can be found [here](https://hub.docker.com/r/sirpacoder/project)
 We can test the projects response doing a GET request to `http://localhost:3001/api/todos` using Postman or use the small client application bellow.
 ___
 
-We can find the small todo client [here](./project/client/)
+We can find the small todo client [here](../../project/client/)
 
 The frontend is a React project and can be run as usual with the following:
 

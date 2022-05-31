@@ -7,20 +7,20 @@ deployment.yaml [file](./log-output/manifests/deployment.yml)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: log-output
+  name: project-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: log-output
+      app: project-server
   template:
     metadata:
       labels:
-        app: log-output
+        app: project-server
     spec:
       containers:
-      - name: log-output
-        image: sirpacoder/log-output:v0.3
+      - name: project-server
+        image: sirpacoder/project:v0.5
         resources:
           limits:
             memory: "128Mi"
@@ -32,9 +32,9 @@ ingress.yaml [file](./log-output/manifests/ingress.yaml)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: log-output
+  name: project-server
   labels:
-    name: log-output
+    name: project-server
 spec:
   rules:
   - http:
@@ -43,7 +43,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: log-output-svc
+            name: project-server-svc
             port: 
               number: 30081
 ```
@@ -54,15 +54,16 @@ service.yaml [file](./project/manifests/service.yaml)
 apiVersion: v1
 kind: Service
 metadata:
-  name: log-output-svc
+  name: project-server-svc
 spec:
   selector:
-    app: log-output
+    app: project-server
   ports:
   - port: 30081
     protocol: TCP
-    targetPort: 5000
+    targetPort: 3001
 ```
+
 then created a new cluster using the following script
 
 ```
@@ -73,4 +74,6 @@ followed by
 $ kubectl apply -f manifests/
 ```
 
-with that I was able to access the [http://localhost:8080/api/strings](http://localhost:8080/api/strings) port from the broswer
+with that I was able to access the [http://localhost:8080/api/todos](http://localhost:8080/api/todos) port from the broswer
+
+**The full project can be found [here](../../project/)**
