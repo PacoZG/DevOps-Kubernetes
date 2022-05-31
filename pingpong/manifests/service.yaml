@@ -8,4 +8,4 @@ spec:
   ports:
   - port: 30081
     protocol: TCP
-    targetPort: 3001
+    targetPort: 5000

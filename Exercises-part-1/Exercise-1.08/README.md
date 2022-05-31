@@ -1,4 +1,4 @@
-# Exercise 1.07: External access with Ingress
+# Exercise 1.08: Project v0.5
 
 ### In order to make te right configuration I implemeted the manifests files as follow:
 
