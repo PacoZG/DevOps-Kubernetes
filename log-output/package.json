@@ -2,10 +2,12 @@
   "name": "log-output",
   "version": "1.0.0",
   "description": "DevOps Kubernetes exercise 1.01",
-  "main": "index.js",
+  "main": "reader.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "reader": "node reader.js",
+    "writer": "node writer.js",
+    "reader-dev": "nodemon reader.js",
+    "writer-dev": "nodemon writer.js"
   },
   "author": "Pacoder",
   "license": "ISC",

@@ -1,13 +1,27 @@
 version: '3.9'
 
 services:
-  log-output:
-    image: log-output:v0.3
-    container_name: log-output
+  writer:
+    image: writer:v0.1
+    container_name: writer
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.writer
+    environment:
+      - PORT=3002
+    ports:
+      - 3002:3002
+    volumes:
+      - ./:/usr/src/app
+  reader:
+    image: reader:v0.1
+    container_name: reader
+    build:
+      context: .
+      dockerfile: Dockerfile.reader
     environment:
       - PORT=3001
     ports:
       - 3001:3001
+    volumes:
+      - ./:/usr/src/app

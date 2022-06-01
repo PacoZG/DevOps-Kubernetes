@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: log-output
+  name: log-output-dep
 spec:
   replicas: 1
   selector:
@@ -12,9 +12,24 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+        - name: files
+          emptyDir: {}
       containers:
-      - name: log-output
-        image: sirpacoder/log-output:v0.3
+      - name: reader
+        image: sirpacoder/reader
+        volumeMounts:
+          - name: files
+            mountPath: /usr/src/app
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      - name: writer
+        image: sirpacoder/writer
+        volumeMounts:
+          - name: files
+            mountPath: /usr/src/app
         resources:
           limits:
             memory: "128Mi"
