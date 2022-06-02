@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output
+  template:
+    metadata:
+      labels:
+        app: log-output
+    spec:
+      volumes:
+        - name: shared-files
+          persistentVolumeClaim:
+            claimName: files-claim
+      containers:
+      - name: reader
+        image: sirpacoder/reader
+        volumeMounts:
+          - name: shared-files
+            mountPath: /usr/src/app/files
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      - name: writer
+        image: sirpacoder/writer
+        volumeMounts:
+          - name: shared-files
+            mountPath: /usr/src/app/files
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

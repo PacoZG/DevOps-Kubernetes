@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  writer:
+    image: writer:v0.1
+    container_name: writer
+    build:
+      context: ./log-output
+      dockerfile: Dockerfile.writer
+    environment:
+      - PORT=3002
+    ports:
+      - 3002:3002
+    volumes:
+      - ./files:/usr/src/app/files
+  reader:
+    image: reader:v0.1
+    container_name: reader
+    build:
+      context: ./log-output
+      dockerfile: Dockerfile.reader
+    environment:
+      - PORT=3001
+    ports:
+      - 3001:3001
+    volumes:
+      - ./files:/usr/src/app/files
+  log-output:
+    image: pingpong:v0.2
+    container_name: pingpong
+    build:
+      context: ./pingpong
+      dockerfile: Dockerfile
+    environment:
+      - PORT=5000
+    ports:
+      - 5000:5000
+    volumes:
+      - ./files:/usr/src/app/files

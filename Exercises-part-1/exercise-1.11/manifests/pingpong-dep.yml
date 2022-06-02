@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingpong-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pingpong
+  template:
+    metadata:
+      labels:
+        app: pingpong
+    spec:
+      volumes:
+        - name: shared-files
+          persistentVolumeClaim:
+            claimName: files-claim
+      containers:
+      - name: pingpong
+        image: sirpacoder/pingpong:v0.2
+        volumeMounts:
+          - name: shared-files
+            mountPath: /usr/src/app/files
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
