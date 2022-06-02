@@ -154,26 +154,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: log-output
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: log-output-svc
-            port: 
-              number: 30081
-```
-___
-service.yaml [file](./manifests/ingress.yaml)
-
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: log-output
   labels:
     name: log-output
 spec:
