@@ -15,7 +15,7 @@ let date_hash
 
 const getHash = async () => {
   try {
-    date_hash = await fs.readFile('./hash.txt', { encoding: 'utf8' })
+    date_hash = await fs.readFile('files/hash.txt', { encoding: 'utf8' })
     console.log(date_hash)
   } catch (error) {
     console.log(error)

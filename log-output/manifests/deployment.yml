@@ -14,13 +14,12 @@ spec:
     spec:
       volumes:
         - name: files
-          emptyDir: {}
       containers:
       - name: reader
         image: sirpacoder/reader
         volumeMounts:
           - name: files
-            mountPath: /usr/src/app
+            mountPath: /usr/src/app/files
         resources:
           limits:
             memory: "128Mi"
@@ -29,7 +28,7 @@ spec:
         image: sirpacoder/writer
         volumeMounts:
           - name: files
-            mountPath: /usr/src/app
+            mountPath: /usr/src/app/files
         resources:
           limits:
             memory: "128Mi"

@@ -20,20 +20,24 @@ const stringGenerator = () => {
   return newString
 }
 
-const filePath = process.env.FILE_PATH || './hash.txt'
+const filePath = process.env.FILE_PATH || 'files/hash.txt'
 
-const hashGen = () => {
+let date_hash
+
+const hashGen = async () => {
   const newDate = new Date()
   const hash = stringGenerator()
-  console.log(`${newDate.toISOString()}: ${hash}`)
-  fs.writeFile(filePath, `${newDate.toISOString()}: ${hash}`)
+  date_hash = `${newDate.toISOString()}: ${hash}`
+  console.log(date_hash)
+  fs.writeFile(filePath, date_hash)
   setTimeout(hashGen, 5000)
-  return `${newDate.toISOString()}: ${hash}`
+  return date_hash
 }
 
-const date_hash = hashGen()
-app.get('/date_hash', (_req, res) => {
-  res.send(date_hash)
+hashGen()
+app.use('/date_hash', (_req, res) => {
+  console.log('Correct request: ', date_hash)
+  res.status(201).send(date_hash)
 })
 
 const PORT = process.env.PORT || 3002
