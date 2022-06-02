@@ -1,4 +1,4 @@
-# Exercise 1.08: Project v0.5
+# Exercise 1.10: Even more services
 
 ### In order to make te right configuration I implemeted the manifests files as follow:
 
