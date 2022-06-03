@@ -4,8 +4,8 @@ WORKDIR /usr/src/app
 
 COPY package* ./
 
-RUN npm install --quiet
+RUN npm ci
 
-COPY . .
+COPY ./index.js .
 
 CMD ["npm", "run", "server"]
