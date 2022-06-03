@@ -176,7 +176,10 @@ followed by
 $ kubectl apply -f manifests/
 ```
 
-The image of the image request app can be found [here](https://hub.docker.com/r/sirpacoder/images)
+The image request app can be found [here](https://hub.docker.com/r/sirpacoder/images)
+
+Find the projects image on my Docker Hub [project](https://hub.docker.com/r/sirpacoder/project)
+
 
 with that I was able to access the [http://localhost:8080/api/todos](http://localhost:8080/api/todos) to see hash on the broswer
 
