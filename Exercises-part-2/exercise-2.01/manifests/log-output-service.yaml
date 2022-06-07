@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: log-output-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: log-output-dep
+  ports:
+    - name: reader
+      port: 3001
+      protocol: TCP
+      targetPort: 3001
+    - name: writer
+      port: 3002
+      protocol: TCP
+      targetPort: 3002
