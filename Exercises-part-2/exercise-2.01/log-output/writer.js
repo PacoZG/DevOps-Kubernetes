@@ -3,6 +3,7 @@ require('express-async-errors')
 const fs = require('fs/promises')
 
 const express = require('express')
+const cors = require('cors')
 
 const http = require('http')
 const app = express()
@@ -27,12 +28,13 @@ const hashGen = async () => {
   return `${newDate.toISOString()}: ${hash}`
 }
 
+app.use(cors())
 app.use(express.json())
 app.use(express.static('build'))
 
 app.use('/date_hash', async (_req, res) => {
   const date_hash = await hashGen()
-  console.log('Correct request to /date_hash  ', date_hash)
+  console.log('Correct request to /date_hash')
   res.status(201).send(date_hash)
 })
 

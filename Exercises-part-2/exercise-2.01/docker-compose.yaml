@@ -7,8 +7,6 @@ services:
     build:
       context: ./log-output
       dockerfile: Dockerfile.writer
-    environment:
-      - PORT=3002
     ports:
       - 3002:3002
 
@@ -18,10 +16,10 @@ services:
     build:
       context: ./log-output
       dockerfile: Dockerfile.reader
-    environment:
-      - PORT=3001
     ports:
       - 3001:3001
+    environment:
+      - WRITER_URL=http://writer:3002
   
   pingpong:
     image: pingpong:v0.3
@@ -31,3 +29,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5000:5000
+    environment:
+      - READER_URL=http://reader:3001

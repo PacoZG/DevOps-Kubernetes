@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('express-async-errors')
+const axios = require('axios')
 
 const express = require('express')
 const cors = require('cors')
@@ -7,14 +8,12 @@ const cors = require('cors')
 const http = require('http')
 const app = express()
 const server = http.createServer(app)
-const fs = require('fs/promises')
-const axios = require('axios')
 
 const PORT = process.env.PORT || 3001
+const WRITER_URL = process.env.WRITER_URL || 'http://localhost:3002'
 
 const getHash = async () => {
-  response = await axios.get('http://localhost:3002/date_hash', { headers: { 'Read-Only': true } })
-  console.log(response.data)
+  const response = await axios.get(`${WRITER_URL}/date_hash`)
   return response.data
 }
 

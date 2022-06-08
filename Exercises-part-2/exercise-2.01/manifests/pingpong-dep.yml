@@ -19,9 +19,6 @@ spec:
       containers:
       - name: pingpong
         image: sirpacoder/pingpong:v0.3
-        volumeMounts:
-          - name: shared-files
-            mountPath: /usr/src/app/files
         resources:
           limits:
             memory: "128Mi"
