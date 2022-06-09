@@ -8,6 +8,6 @@ spec:
     app: pingpong
   ports:
   - name: pingpong
-    port: 30081
+    port: 30080
     protocol: TCP
     targetPort: 5000

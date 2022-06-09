@@ -1,3 +1,8 @@
+# Exercise 2.01: Connecting pods
+
+## In order to run this exercise locally I made the next configuration:
+docker-compose.yaml [file](./docker-compose.yml)
+```yaml
 version: '3.9'
 
 services:
@@ -38,3 +43,13 @@ services:
       - PINGPONG_URL=http://pingpong
       - READER_URL=http://reader
       - PORT=5000
+```
+
+Script to create de cluster
+```
+$ k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
+```
+
+Manifest [files](./manifests/)
+log-output [files](./log-output/)
+pingpong [files](./pingpong/)

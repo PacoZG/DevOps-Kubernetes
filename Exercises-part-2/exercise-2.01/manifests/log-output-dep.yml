@@ -13,14 +13,22 @@ spec:
         app: log-output
     spec:
       containers:
-      - name: reader
-        image: sirpacoder/reader:v0.2
+      - name: writer
+        image: sirpacoder/writer:v0.3
+        env:
+          - name: WRITER_URL
+            value: http://writer
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
-      - name: writer
-        image: sirpacoder/writer:v0.2
+      - name: reader
+        image: sirpacoder/reader:v0.3
+        env:
+          - name: WRITER_URL
+            value: http://writer
+          - name: READER_URL
+            value: http://reader
         resources:
           limits:
             memory: "128Mi"
