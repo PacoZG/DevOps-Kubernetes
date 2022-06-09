@@ -19,7 +19,7 @@ services:
     ports:
       - 3001:3001
     environment:
-      - WRITER_URL=http://writer:3002
+      - WRITER_URL=http://writer
   
   pingpong:
     image: pingpong:v0.3
@@ -30,4 +30,4 @@ services:
     ports:
       - 5000:5000
     environment:
-      - READER_URL=http://reader:3001
+      - READER_URL=http://reader

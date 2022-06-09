@@ -1,6 +1,5 @@
 require('dotenv').config()
 require('express-async-errors')
-const fs = require('fs/promises')
 
 const express = require('express')
 const cors = require('cors')
@@ -9,6 +8,8 @@ const http = require('http')
 const app = express()
 
 const server = http.createServer(app)
+
+const PORT = process.env.PORT || 3002
 
 const stringGenerator = () => {
   const randomHash1 = Math.random().toString(36).substring(2, 10)
@@ -37,8 +38,6 @@ app.use('/date_hash', async (_req, res) => {
   console.log('Correct request to /date_hash')
   res.status(201).send(date_hash)
 })
-
-const PORT = process.env.PORT || 3002
 
 server.listen(PORT, () => {
   console.log(`Server started in port ${PORT}`)

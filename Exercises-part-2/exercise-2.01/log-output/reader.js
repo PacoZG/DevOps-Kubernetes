@@ -10,10 +10,10 @@ const app = express()
 const server = http.createServer(app)
 
 const PORT = process.env.PORT || 3001
-const WRITER_URL = process.env.WRITER_URL || 'http://localhost:3002'
+const WRITER_URL = process.env.WRITER_URL || 'http://localhost'
 
 const getHash = async () => {
-  const response = await axios.get(`${WRITER_URL}/date_hash`)
+  const response = await axios.get(`${WRITER_URL}:3002/date_hash`)
   return response.data
 }
 

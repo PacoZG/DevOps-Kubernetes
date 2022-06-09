@@ -9,7 +9,7 @@ const http = require('http')
 const app = express()
 const server = http.createServer(app)
 const PORT = process.env.PORT || 5000
-const READER_URL = process.env.READER_URL || 'http://localhost:3001'
+const READER_URL = process.env.READER_URL || 'http://localhost'
 
 app.use(cors())
 
@@ -21,7 +21,7 @@ let counter = 0
 let date_hash
 
 const getHash = async () => {
-  const response = await axios.get(`${READER_URL}/api/strings`)
+  const response = await axios.get(`${READER_URL}:3001/api/strings`)
   return response.data
 }
 
