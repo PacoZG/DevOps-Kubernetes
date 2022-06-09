@@ -25,9 +25,8 @@ const stringGenerator = () => {
 }
 
 const hashGen = async () => {
-  const newDate = new Date()
   const hash = await stringGenerator()
-  return `${newDate.toISOString()}: ${hash}`
+  return hash
 }
 
 app.use(cors())

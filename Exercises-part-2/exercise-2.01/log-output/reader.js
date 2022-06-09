@@ -14,8 +14,9 @@ const WRITER_URL = process.env.WRITER_URL || 'http://localhost'
 const READER_URL = process.env.READER_URL || 'http://localhost'
 
 const getHash = async () => {
+  const newDate = new Date()
   const response = await axios.get(`${WRITER_URL}:3002/date_hash`)
-  return response.data
+  return `${newDate.toISOString()}: ${response.data}`
 }
 
 app.use(cors())
