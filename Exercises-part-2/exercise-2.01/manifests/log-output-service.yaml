@@ -7,11 +7,7 @@ spec:
   selector:
     app: log-output
   ports:
-    - name: writer
-      port: 3002
-      protocol: TCP
-      targetPort: 3002
     - name: reader
-      port: 3001
+      port: 6662
       protocol: TCP
       targetPort: 3001
