@@ -9,6 +9,8 @@ services:
       dockerfile: Dockerfile.writer
     ports:
       - 3002:3002
+    environment:
+      - WRITER_URL=http://writer
 
   reader:
     image: reader:v0.2
@@ -19,6 +21,7 @@ services:
     ports:
       - 3001:3001
     environment:
+      - READER_URL=http://reader
       - WRITER_URL=http://writer
   
   pingpong:
@@ -30,4 +33,5 @@ services:
     ports:
       - 5000:5000
     environment:
+      - PINGPONG_URL=http://pingpong
       - READER_URL=http://reader

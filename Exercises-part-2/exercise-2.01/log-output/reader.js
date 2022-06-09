@@ -11,6 +11,7 @@ const server = http.createServer(app)
 
 const PORT = process.env.PORT || 3001
 const WRITER_URL = process.env.WRITER_URL || 'http://localhost'
+const READER_URL = process.env.READER_URL || 'http://localhost'
 
 const getHash = async () => {
   const response = await axios.get(`${WRITER_URL}:3002/date_hash`)
@@ -23,7 +24,7 @@ app.use(express.static('build'))
 
 app.use('/api/strings', async (req, res) => {
   const date_hash = await getHash()
-  console.log('GET request to /api/strings done succesfully')
+  console.log(`GET request to ${READER_URL}:${PORT}/api/strings done succesfully`)
   res.status(201).send(date_hash)
 })
 

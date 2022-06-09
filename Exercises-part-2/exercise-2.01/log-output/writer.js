@@ -10,6 +10,7 @@ const app = express()
 const server = http.createServer(app)
 
 const PORT = process.env.PORT || 3002
+const WRITER_URL = process.env.WRITER_URL || 'http://localhost'
 
 const stringGenerator = () => {
   const randomHash1 = Math.random().toString(36).substring(2, 10)
@@ -35,7 +36,7 @@ app.use(express.static('build'))
 
 app.use('/date_hash', async (_req, res) => {
   const date_hash = await hashGen()
-  console.log('Correct request to /date_hash')
+  console.log(`GET request to ${WRITER_URL}:${PORT}/date_hash done succesfully`)
   res.status(201).send(date_hash)
 })
 
