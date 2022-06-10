@@ -21,7 +21,7 @@ spec:
         image: sirpacoder/reader
         volumeMounts:
           - name: shared-files
-            mountPath: /usr/src/app/files
+            mountPath: /usr/src/app/shared/files
         resources:
           limits:
             memory: "128Mi"
@@ -30,7 +30,7 @@ spec:
         image: sirpacoder/writer
         volumeMounts:
           - name: shared-files
-            mountPath: /usr/src/app/files
+            mountPath: /usr/src/app/shared/files
         resources:
           limits:
             memory: "128Mi"

@@ -12,7 +12,7 @@ services:
     ports:
       - 3002:3002
     volumes:
-      - ./files:/usr/src/app/files
+      - ./shared/files:/usr/src/app/shared/files
   reader:
     image: reader:v0.1
     container_name: reader
@@ -24,7 +24,7 @@ services:
     ports:
       - 3001:3001
     volumes:
-      - ./files:/usr/src/app/files
+      - ./shared/files:/usr/src/app/shared/files
   log-output:
     image: pingpong:v0.2
     container_name: pingpong
@@ -36,4 +36,4 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./files:/usr/src/app/files
+      - ./shared/files:/usr/src/app/shared/files

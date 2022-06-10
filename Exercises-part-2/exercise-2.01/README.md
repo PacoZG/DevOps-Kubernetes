@@ -185,3 +185,5 @@ The image of the hash reader can be found [here](https://hub.docker.com/r/sirpac
 The image of the hash pingpong can be found [here](https://hub.docker.com/r/sirpacoder/pingpong)
 
 with that I was able to access the [http://localhost:8081](http://localhost:8081) port from the broswer
+
+* I managed to finished this exercise with the help of [Jami Kousa](https://github.com/Jakousa) by patiently reviewing the code and do the prope fix and refactoring, Thank you!
