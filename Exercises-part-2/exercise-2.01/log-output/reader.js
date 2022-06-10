@@ -1,35 +1,44 @@
 require('dotenv').config()
 require('express-async-errors')
 const axios = require('axios')
-
+const { readFile } = require('fs/promises')
 const express = require('express')
-const cors = require('cors')
 
 const http = require('http')
 const app = express()
 const server = http.createServer(app)
 
 const PORT = process.env.PORT || 3001
-const WRITER_URL = process.env.WRITER_URL || 'http://localhost'
-const READER_URL = process.env.READER_URL || 'http://localhost'
 
 const getHash = async () => {
-  const newDate = new Date()
-  const response = await axios.get(`${WRITER_URL}:3002/date_hash`)
-  return `${newDate.toISOString()}: ${response.data}`
+  try {
+    const hash = await readFile('/shared/files/hash.txt')
+    return hash
+  } catch (err) {
+    console.log('Failed to receive string with error:', err)
+    return 'No string yet'
+  }
 }
 
-app.use(cors())
-app.use(express.json())
-app.use(express.static('build'))
+const getPongs = async () => {
+  const response = await axios.get(`${process.env.PINGPONG_URL}`)
+  return response.data
+}
 
-app.use('/api/strings', async (req, res) => {
-  const date_hash = await getHash()
-  console.log(`GET request to ${READER_URL}:${PORT}/api/strings done succesfully`)
-  res.status(201).send(date_hash)
+app.use(express.json())
+
+app.use('/', async (_, res) => {
+  const hash = await getHash()
+  const counter = await getPongs()
+  console.log(`GET request to ${PORT}/ done succesfully`)
+  res.status(200).send(`
+  <div>
+    <p>${hash}</p>
+    <p>Ping / Pongs: ${counter}</p>
+  </div>`)
 })
 
-app.get('/health', (req, res) => {
+app.get('/health', (_, res) => {
   res.send('ok')
 })
 

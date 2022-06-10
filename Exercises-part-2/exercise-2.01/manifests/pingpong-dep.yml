@@ -14,12 +14,7 @@ spec:
     spec:
       containers:
       - name: pingpong
-        image: sirpacoder/pingpong:v0.4
-        env:
-          - name: READER_URL
-            value: http://reader
-          - name: PINGPONG_URL
-            value: http://pingpong
+        image: k3d-registry:5000/pingpong
         resources:
           limits:
             memory: "128Mi"

@@ -12,23 +12,27 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+        - name: shared-files
+          emptyDir: {}
       containers:
       - name: writer
-        image: sirpacoder/writer:v0.3
-        env:
-          - name: WRITER_URL
-            value: http://writer
+        image: k3d-registry:5000/writer:latest
+        volumeMounts:
+          - name: shared-files
+            mountPath: /shared/files
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
       - name: reader
-        image: sirpacoder/reader:v0.3
+        image: k3d-registry:5000/reader:latest
         env:
-          - name: WRITER_URL
-            value: http://writer
-          - name: READER_URL
-            value: http://reader
+          - name: PINGPONG_URL
+            value: http://pingpong-svc:6661
+        volumeMounts: # Mount volume
+          - name: shared-files
+            mountPath: /shared/files
         resources:
           limits:
             memory: "128Mi"

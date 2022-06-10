@@ -2,12 +2,6 @@ FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-
-RUN npm install
-
-EXPOSE 3002
-
 COPY ./writer.js ./
 
-CMD ["npm", "run", "writer"]
+CMD ["node", "writer.js"]
