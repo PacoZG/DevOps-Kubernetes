@@ -2,14 +2,16 @@ const { writeFile } = require('fs/promises')
 
 const { randomUUID } = require('crypto')
 
-const PATH = '/shared/files/hash.txt'
+const PATH = 'shared/files/hash.txt'
 
 const writeHashToFile = async () => {
+  const newDate = new Date()
   const newString = randomUUID()
-  console.log(`Writing ${newString} to ${PATH}`)
+  const newHash = `${newDate.toISOString()}: ${newString}`
+  console.log(`${newHash} to ${PATH}\n`)
   try {
-    await writeFile(PATH, newString)
-    console.log(`Successfully wrote ${newString}`)
+    await writeFile(PATH, newHash)
+    console.log(`Successfully wrote:\n${newHash}`)
   } catch (err) {
     console.log(err)
   }

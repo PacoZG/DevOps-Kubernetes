@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: pingpong
-        image: k3d-registry:5000/pingpong
+        image: sirpacoder/pingpong:v0.3
         resources:
           limits:
             memory: "128Mi"

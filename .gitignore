@@ -6,3 +6,5 @@ node_modules
 .env
 
 # specific folders or files
+shared
+files

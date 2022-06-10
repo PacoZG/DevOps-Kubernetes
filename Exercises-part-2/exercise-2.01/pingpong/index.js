@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('express-async-errors')
+var os = require('os')
 
 const express = require('express')
 const cors = require('cors')
@@ -16,16 +17,19 @@ app.get('/health', (_, res) => {
 })
 
 let counter = 0
+let rootCounter = 0
 
-app.get('/pingpong', async (_, res) => {
+app.get('/pingpong', async (req, res) => {
+  console.log(os.hostname().indexOf('local') > -1)
   counter += 1
-  console.log(`GET request to ${PORT}/pingpong done succesfully`)
-  res.status(200).send(`pong: ${counter}`)
+  console.log(`GET request to ${req.protocol}://${req.get('host')}/pingpong done succesfully`)
+  res.status(200).send(`Pongs: ${counter}`)
 })
 
 app.get('/', (_, res) => {
   console.log('Request to root path / received')
-  res.status(200).send(`${counter}`)
+  rootCounter += 1
+  res.status(200).send(`${rootCounter}`)
 })
 
 server.listen(PORT, () => {

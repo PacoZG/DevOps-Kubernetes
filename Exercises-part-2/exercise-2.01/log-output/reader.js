@@ -9,10 +9,11 @@ const app = express()
 const server = http.createServer(app)
 
 const PORT = process.env.PORT || 3001
+const PINGPONG_URL = process.env.PINGPONG_URL || 'http://localhost:5000/pingpong'
 
 const getHash = async () => {
   try {
-    const hash = await readFile('/shared/files/hash.txt')
+    const hash = await readFile('shared/files/hash.txt')
     return hash
   } catch (err) {
     console.log('Failed to receive string with error:', err)
@@ -20,22 +21,31 @@ const getHash = async () => {
   }
 }
 
-const getPongs = async () => {
-  const response = await axios.get(`${process.env.PINGPONG_URL}`)
+const getPongs = async url => {
+  console.log(`GET PONG request to ${PINGPONG_URL} from ${url}`)
+  const response = await axios.get(`${PINGPONG_URL}`)
   return response.data
 }
 
 app.use(express.json())
 
-app.use('/', async (_, res) => {
+app.use('/', async (req, res) => {
   const hash = await getHash()
-  const counter = await getPongs()
-  console.log(`GET request to ${PORT}/ done succesfully`)
-  res.status(200).send(`
-  <div>
-    <p>${hash}</p>
-    <p>Ping / Pongs: ${counter}</p>
-  </div>`)
+  const counter = await getPongs(`${req.protocol}://${req.get('host')}`)
+  console.log(`GET request to ${req.protocol}://${req.get('host')}/ done succesfully`)
+  if (process.env.PINGPONG_URL) {
+    res.status(200).send(`
+    <div>
+      <p>${hash}</p>
+      <p>Ping / Pongs: ${counter}</p>
+    </div>`)
+  } else {
+    res.status(200).send(`
+    <div>
+      <p>${hash}</p>
+      <p>Ping / ${counter}</p>
+    </div>`)
+  }
 })
 
 app.get('/health', (_, res) => {
