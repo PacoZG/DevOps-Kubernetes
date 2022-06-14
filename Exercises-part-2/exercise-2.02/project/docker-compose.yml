@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  
+  client:
+    image: client:v0.1
+    container_name: project-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - SERVER_URL=http://server:3001
+
+  server:
+    image: server:v0.1
+    container_name: project-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3001
+    ports:
+      - 3001:3001

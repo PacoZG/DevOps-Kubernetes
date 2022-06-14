@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: client
+        image: sirpacoder/client:v0.1
+        env:
+          - name: SERVER_URL
+            value: http://server-svc:6661
+        ports:
+          - containerPort: 3000
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
