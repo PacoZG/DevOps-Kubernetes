@@ -15,6 +15,9 @@ spec:
       containers:
       - name: client
         image: sirpacoder/client:v0.1
+        env:
+          - name: REACT_APP_SERVER_URL
+            value: http://localhost:8081
         resources:
           limits:
             memory: "128Mi"

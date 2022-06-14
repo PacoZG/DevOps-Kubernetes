@@ -13,6 +13,7 @@ const TodoList = () => {
         text: text,
       }
       dispatch(createTodo(newTodo))
+      setText('')
     } else {
       window.alert('You need to type more charecthers')
     }

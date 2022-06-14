@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseurl = process.env.SERVER_URL || 'http://localhost:3001'
+const baseurl = process.env.REACT_APP_SERVER_URL
 
 console.log({ baseurl })
 
