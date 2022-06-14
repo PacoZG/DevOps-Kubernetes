@@ -8,6 +8,6 @@ spec:
     app: server
   ports:
   - name: server
-    port: 3001
+    port: 6662
     protocol: TCP
     targetPort: 3001

@@ -14,11 +14,11 @@ spec:
           service:
             name: client-svc
             port: 
-              number: 3000
+              number: 6661
       - path: /api/todos
         pathType: Prefix
         backend:
           service:
             name: server-svc
             port:
-              number: 3001
+              number: 6662

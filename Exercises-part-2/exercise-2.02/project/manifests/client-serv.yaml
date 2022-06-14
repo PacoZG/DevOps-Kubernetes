@@ -8,7 +8,7 @@ spec:
     app: client
   ports:
   - name: client
-    port: 3000
+    port: 6661
     protocol: TCP
     targetPort: 3000
     nodePort: 30081
