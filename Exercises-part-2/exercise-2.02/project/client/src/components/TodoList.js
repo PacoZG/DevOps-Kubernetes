@@ -1,38 +1,41 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createTodo } from '../reducers/todoReducer'
+import { useField } from '../hooks/index'
 
 const TodoList = () => {
   const dispatch = useDispatch()
   const todos = useSelector(state => state.todos)
-  const [text, setText] = useState('')
+  const task = useField('text')
 
   const handleCreateTodo = () => {
-    if (text.length > 14) {
+    if (task.params.value.length > 14) {
       const newTodo = {
-        text: text,
+        text: task.params.value,
       }
+      console.log(task.params.value)
       dispatch(createTodo(newTodo))
-      setText('')
+      task.reset()
+      window.alert('To Do successfully created')
     } else {
-      window.alert('You need to type more charecthers')
+      window.alert('You need to type more characthers')
     }
   }
 
   return (
     <div className="TodoList">
       <img className="image" alt="pic" src="https://picsum.photos/1200" />
-      {text.length < 15 ? (
-        <label className="label">{`${text.length} of 15 minimum characters`}</label>
+      {task.params.value.length < 15 ? (
+        <label className="label">{`${task.params.value.length} of 15 minimum characters`}</label>
       ) : (
-        <label className="label">{`${text.length} of 140 maximum characters`}</label>
+        <label className="label">{`${task.params.value.length} of 140 maximum characters`}</label>
       )}
       <textarea
         className="textarea"
         placeholder="140 characters minimum"
         minLength={30}
         maxLength={140}
-        onChange={event => setText(event.target.value)}
+        {...task.params}
       />
       <button className="button" onClick={() => handleCreateTodo()}>
         Create TODO

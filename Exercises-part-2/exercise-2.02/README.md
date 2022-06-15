@@ -1,4 +1,4 @@
-# Exercise 2.01: Connecting pods
+# Exercise 2.02: Project v1.0
 
 ## In order to run this exercise locally I made the next configuration:
 docker-compose.yaml [file](./docker-compose.yml)

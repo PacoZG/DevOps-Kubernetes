@@ -13,7 +13,6 @@ const getAllTodos = async () => {
 const createTodo = async todo => {
   console.log(`Posting ToDo to ${baseurl}/api/todos`)
   const response = await axios.post(`${baseurl}/api/todos`, todo)
-  console.log(response)
   return response.data
 }
 
