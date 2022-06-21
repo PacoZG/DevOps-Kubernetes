@@ -131,6 +131,33 @@ spec:
     protocol: TCP
     targetPort: 3001
 ```
+___
+Verification of result on the terminal:
+
+```
+➜  exercise-2.04 git:(main) ✗ kubectl apply -f manifests/
+deployment.apps/client-deployment created
+service/client-svc created
+ingress.networking.k8s.io/project created
+namespace/project unchanged
+deployment.apps/server-deployment unchanged
+service/server-svc unchanged
+➜  exercise-2.04 git:(main) ✗ kubectl get namespaces
+NAME              STATUS   AGE
+default           Active   6d15h
+kube-system       Active   6d15h
+kube-public       Active   6d15h
+kube-node-lease   Active   6d15h
+pingpong-log      Active   14m
+project           Active   30s
+➜  exercise-2.04 git:(main) ✗ kubens project
+Context "k3d-k3s-default" modified.
+Active namespace is "project".
+➜  exercise-2.04 git:(main) ✗ kubectl get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+client-deployment-6bbf4cc7b6-4jbqz   1/1     Running   0          45s
+server-deployment-6c9b89997c-x4m4b   1/1     Running   0          53s
+```
 
 Script to create de cluster
 ```
