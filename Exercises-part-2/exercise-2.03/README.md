@@ -148,6 +148,25 @@ spec:
     targetPort: 5000
 ```
 
+Verification of result on the terminal:
+
+```
+➜  exercise-2.03 git:(main) ✗ kubectl get namespaces
+NAME              STATUS   AGE
+default           Active   6d15h
+kube-system       Active   6d15h
+kube-public       Active   6d15h
+kube-node-lease   Active   6d15h
+pingpong-log      Active   6m39s
+➜  exercise-2.03 git:(main) ✗ kubens pingpong-log
+Context "k3d-k3s-default" modified.
+Active namespace is "pingpong-log".
+➜  exercise-2.03 git:(main) ✗ kubectl get pods
+NAME                              READY   STATUS    RESTARTS   AGE
+log-output-dep-6889698cb9-fhdhd   2/2     Running   0          7m38s
+pingpong-dep-655f679bc6-bjpg5     1/1     Running   0          7m38s
+```
+
 
 Script to create de cluster
 ```
