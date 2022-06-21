@@ -75,6 +75,9 @@ spec:
       containers:
       - name: client
         image: sirpacoder/client:v0.1
+        env:
+          - name: REACT_APP_SERVER_URL
+            value: http://localhost:8081
         resources:
           limits:
             memory: "128Mi"
@@ -129,16 +132,16 @@ server-serv.yaml [file](./manifests/server-serv.yaml)
 apiVersion: v1
 kind: Service
 metadata:
-  name: pingpong-svc
+  name: server-svc
 spec:
   type: ClusterIP
   selector:
-    app: pingpong
+    app: server
   ports:
-  - name: pingpong
-    port: 6661
+  - name: server
+    port: 6662
     protocol: TCP
-    targetPort: 5000
+    targetPort: 3001
 ```
 
 Script to create de cluster
