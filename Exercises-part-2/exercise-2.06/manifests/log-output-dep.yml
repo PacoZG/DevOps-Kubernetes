@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output-dep
+  namespace: pingpong-log
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output
+  template:
+    metadata:
+      labels:
+        app: log-output
+    spec:
+      volumes:
+        - name: shared-files
+          emptyDir: {}
+      containers:
+      - name: writer
+        image: sirpacoder/writer:v0.2
+        volumeMounts:
+          - name: shared-files
+            mountPath: /usr/src/app/shared/files
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+      - name: reader
+        image: sirpacoder/reader:v0.2
+        env:
+        - name: PINGPONG_URL
+          valueFrom:
+            configMapKeyRef:
+              name: config-env-variables
+              key: pingpong_url
+        - name: MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: config-env-variables
+              key: message
+        volumeMounts:
+          - name: shared-files
+            mountPath: /usr/src/app/shared/files
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
