@@ -2,6 +2,16 @@
 
 ## In order to run this exercise locally I made the next configuration:
 
+pingpong-log.yaml[file](./manifests/pingpong-log.yaml)
+```yaml
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: pingpong-log
+  labels:
+    name: pingpong-log
+```
+___
 config-map.yaml [file](./manifests/config-map.yaml)
 ```yaml
 apiVersion: v1
@@ -12,16 +22,6 @@ metadata:
 data:
   pingpong_url: http://pingpong-svc:6661
   message: Hello
-```
-___
-pingpong-log.yaml[file](./manifests//pingpong-log.yaml)
-```yaml
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: pingpong-log
-  labels:
-    name: pingpong-log
 ```
 ___
 ingress.yaml [file](./manifests/ingress.yaml)
