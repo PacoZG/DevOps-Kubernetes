@@ -1,4 +1,4 @@
-# Exercise 2.03: Keep them separated
+# Exercise 2.06: Documentation and ConfigMaps
 
 ## In order to run this exercise locally I made the next configuration:
 
@@ -158,6 +158,43 @@ spec:
     port: 6661
     protocol: TCP
     targetPort: 5000
+```
+Terminal logs
+```
+➜  exercise-2.06 git:(main) kubectl describe configmaps config-env-variables
+Name:         config-env-variables
+Namespace:    pingpong-log
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+message:
+----
+Hello
+pingpong_url:
+----
+http://pingpong-svc:6661
+
+BinaryData
+====
+
+Events:  <none>
+➜  exercise-2.06 git:(main) kubectl get configmaps config-env-variables -o yaml
+apiVersion: v1
+data:
+  message: Hello
+  pingpong_url: http://pingpong-svc:6661
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"message":"Hello","pingpong_url":"http://pingpong-svc:6661"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"config-env-variables","namespace":"pingpong-log"}}
+  creationTimestamp: "2022-06-27T12:07:55Z"
+  name: config-env-variables
+  namespace: pingpong-log
+  resourceVersion: "8482"
+  uid: eabd538e-aae2-4817-8f1f-1cc3dfb0052b
 ```
 
 Script to create de cluster

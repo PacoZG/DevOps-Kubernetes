@@ -1,4 +1,4 @@
-# Exercise 2.02: Project v1.0
+# Exercise 2.04: Project v1.1
 
 ## In order to run this exercise locally I made the next configuration:
 project.yaml [file](./manifests//project.yaml)
