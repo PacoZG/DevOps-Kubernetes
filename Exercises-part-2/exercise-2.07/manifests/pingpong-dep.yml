@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingpong-dep
+  namespace: pingpong-log
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pingpong
+  template:
+    metadata:
+      labels:
+        app: pingpong
+    spec:
+      containers:
+      - name: pingpong
+        image: sirpacoder/pingpong:v0.3
+        env:
+          - name: POSTGRES_HOST
+            value: postgres-svc
+        envFrom:
+          - secretRef:
+              name: postgres-pw
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
