@@ -6,7 +6,6 @@ database
 
 # files
 .env
-key.txt
 secret.yaml
 
 # specific folders or files

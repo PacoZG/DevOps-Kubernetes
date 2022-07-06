@@ -23,3 +23,10 @@ spec:
             name: pingpong-svc
             port: 
               number: 6661
+      - path: /reset-count
+        pathType: Prefix
+        backend:
+          service:
+            name: pingpong-svc
+            port: 
+              number: 6661

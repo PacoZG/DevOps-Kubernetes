@@ -1,6 +1,7 @@
 require('dotenv').config()
 require('express-async-errors')
 
+var os = require('os')
 const cors = require('cors')
 const express = require('express')
 const http = require('http')
@@ -73,11 +74,10 @@ app.get('/pingpong', async (req, res) => {
   console.log(os.hostname().indexOf('local') > -1)
   counter += 1
   console.log(`GET request to ${req.protocol}://${req.get('host')}/pingpong done succesfully`)
-  // const { rows } = await query('SELECT * FROM pongs')
   res.status(200).send(`Pongs: ${counter}`)
 })
 
-app.get('/reset-count', async (req, res) => {
+app.get('/reset-count', async (_, res) => {
   await query(`UPDATE pongs SET val=0`)
   const rows = await query('SELECT val from pongs WHERE id=1')
   console.log('Counter value: ', rows[0].val)
