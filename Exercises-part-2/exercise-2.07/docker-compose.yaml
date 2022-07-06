@@ -40,7 +40,7 @@ services:
       - ./database:/var/lib/postgresql/data
 
   pingpong:
-    image: pingpong:v0.3
+    image: pingpong:v0.4
     container_name: pingpong
     build:
       context: ./pingpong
