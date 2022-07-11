@@ -98,6 +98,43 @@ spec:
           requests:
             storage: 100Mi
 ```
+
+Including health check to the backend in kubernetes:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: project
+  namespace: project
+  labels:
+    name: project
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: client-svc
+            port: 
+              number: 6661
+      - path: /api/todos
+        pathType: Prefix
+        backend:
+          service:
+            name: server-svc
+            port:
+              number: 6662
+      - path: /health
+        pathType: Prefix
+        backend:
+          service:
+            name: server-svc
+            port:
+              number: 6662
+```
+---
 The rest of the manifests and project can be found [here](./project)
 
 Script to create de cluster

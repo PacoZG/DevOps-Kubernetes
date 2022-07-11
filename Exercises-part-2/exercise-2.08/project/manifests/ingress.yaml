@@ -23,3 +23,10 @@ spec:
             name: server-svc
             port:
               number: 6662
+      - path: /health
+        pathType: Prefix
+        backend:
+          service:
+            name: server-svc
+            port:
+              number: 6662
