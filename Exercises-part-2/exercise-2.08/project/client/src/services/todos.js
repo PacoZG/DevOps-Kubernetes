@@ -1,30 +1,30 @@
 import axios from 'axios'
 
-const baseurl = `${process.env.REACT_APP_SERVER_URL}/api/todos`
+const baseurl = `${process.env.REACT_APP_SERVER_URL}`
 
 console.log({ baseurl })
 
 const getAllTodos = async () => {
-  console.log(`Getting ToDos from ${baseurl}`)
-  const response = await axios.get(`${baseurl}`)
+  console.log(`Getting ToDos from ${baseurl}/api/todos`)
+  const response = await axios.get(`${baseurl}/api/todos`)
   return response.data
 }
 
 const createTodo = async todo => {
-  console.log(`Posting ToDo to ${baseurl}`)
-  const response = await axios.post(`${baseurl}`, todo)
+  console.log(`Posting ToDo to ${baseurl}/api/todos`)
+  const response = await axios.post(`${baseurl}/api/todos`, todo)
   return response.data
 }
 
 const removeTodo = async id => {
-  console.log(`Removing ToDo from ${baseurl}/${id}`)
-  const response = await axios.delete(`${baseurl}/${id}`)
+  console.log(`Removing ToDo from ${baseurl}/api/todos/${id}`)
+  const response = await axios.delete(`${baseurl}/api/todos/${id}`)
   return response.data
 }
 
 const updateTodo = async todo => {
-  console.log(`Updating ToDo from ${baseurl}/${todo.id}`)
-  const response = await axios.put(`${baseurl}/${todo.id}`, todo)
+  console.log(`Updating ToDo from ${baseurl}/api/todos/${todo.id}`)
+  const response = await axios.put(`${baseurl}/api/todos/${todo.id}`, todo)
   response.data
 }
 

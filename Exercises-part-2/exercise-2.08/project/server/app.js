@@ -1,5 +1,4 @@
 require('express-async-errors')
-const { v4: uuidv4 } = require('uuid')
 const express = require('express')
 const cors = require('cors')
 const config = require('./utils/config')
@@ -11,17 +10,17 @@ console.log('Password: ', config.PASSWORD)
 setTimeout(() => {
   ;(async () => {
     const client = config.connect()
+    console.log(client)
     await client.connect()
-    await client.query(`CREATE TABLE IF NOT EXISTS todos(
-        id SERIAL PRIMARY KEY,
+    await client.query(
+      `CREATE TABLE IF NOT EXISTS todos(
+        id uuid PRIMARY KEY,
         task text,
         status text
-      );`)
-    const { rows } = await client.query('SELECT * FROM todos')
-    if (rows.length === 0) {
-      const id = uuidv4()
-      await client.query(`INSERT INTO todos(id, task, status) VALUES('${id}', 'First todo', 'not-done')`)
-    }
+      );`
+    )
+    // await client.query(`DROP TABLE to_dos)`)
+    console.log(await client.query(`SELECT * FROM todos`))
     await client.end()
   })()
 }, 2000)

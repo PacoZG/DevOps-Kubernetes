@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-dep
+  namespace: project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - name: server
+        image: sirpacoder/server:v2.08
+        env:
+          - name: POSTGRES_HOST
+            value: postgres-svc
+        envFrom:
+          - secretRef:
+              name: postgres-pw
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

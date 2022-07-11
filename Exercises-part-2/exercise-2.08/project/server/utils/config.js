@@ -20,10 +20,11 @@ const connect = () => {
 
 const query = async query => {
   const client = connect()
+  console.log({ client })
   await client.connect()
   const { rows } = await client.query(query)
   await client.end()
   return rows
 }
 
-module.exports = { PORT, PASSWORD, connect, query  }
+module.exports = { PORT, PASSWORD, connect, query }
