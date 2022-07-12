@@ -52,8 +52,17 @@ const TodoList = () => {
         {todos.map(todo => (
           <ul className="todo" key={todo.id}>
             <li className="text">
-              {`To do: `}
-              <span className="span">{todo.task}</span>
+              <label>{`To do: `}</label>
+              {todo.task.includes('http') ? (
+                <div className="span-link">
+                  <p className="span-link">{'Read '}</p>
+                  <a className="hyperlink" href={todo.task} target="blank">
+                    {'Wiki page'}
+                  </a>
+                </div>
+              ) : (
+                <span className="span">{todo.task}</span>
+              )}
             </li>
             <div className="status">
               {`Status: `}
