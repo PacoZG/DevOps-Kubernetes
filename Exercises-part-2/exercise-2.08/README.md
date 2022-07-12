@@ -181,6 +181,11 @@ We create the namespace:
 ```
 $ kubectl apply -f project-space.yaml
 ```
+Do:
+```
+$ export SOPS_AGE_KEY_FILE=$(pwd)/key.txt
+```
+
 Then we decryt and save the variables:
 ```
 $ sops --decrypt secret.enc.yaml | kubectl apply -f -
