@@ -11,6 +11,38 @@ metadata:
     name: project
 ```
 ---
+configuration of the client deployment [file](./project/manifests/client-dep.yaml)
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-dep
+  namespace: project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+      - name: client
+        image: sirpacoder/client:v2.08
+        env:
+          - name: REACT_APP_SERVER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: config-env-variables
+                key: server-url
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+```
+---
 configuration of the server deployment [file](./project/manifests/server-dep.yaml)
 ```yaml
 apiVersion: apps/v1
