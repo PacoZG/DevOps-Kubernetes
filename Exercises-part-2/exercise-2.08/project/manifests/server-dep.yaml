@@ -18,7 +18,10 @@ spec:
         image: sirpacoder/server:v2.08
         env:
           - name: POSTGRES_HOST
-            value: postgres-svc
+            valueFrom:
+              configMapKeyRef:
+                name: config-env-variables
+                key: postgres-host
         envFrom:
           - secretRef:
               name: postgres-pw

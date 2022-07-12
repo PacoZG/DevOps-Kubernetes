@@ -11,7 +11,7 @@ metadata:
     name: project
 ```
 ---
-configuration of the server dep [file](./project/manifests/server-dep.yaml)
+configuration of the server deployment [file](./project/manifests/server-dep.yaml)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -33,7 +33,10 @@ spec:
         image: sirpacoder/server:v2.08
         env:
           - name: POSTGRES_HOST
-            value: postgres-svc
+            valueFrom:
+              configMapKeyRef:
+                name: config-env-variables
+                key: postgres-host
         envFrom:
           - secretRef:
               name: postgres-pw
