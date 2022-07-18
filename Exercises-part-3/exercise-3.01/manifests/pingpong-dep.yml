@@ -4,7 +4,7 @@ metadata:
   name: pingpong-dep
   namespace: pingpong-log
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: pingpong
@@ -16,12 +16,12 @@ spec:
       containers:
       - name: pingpong
         image: sirpacoder/pingpong:v2.07 # latest version of pingpong image
+        envFrom:
+          - secretRef:
+              name: postgres-pw
         env:
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: config-env-variables
-                key: postgres-pw
+          - name: PORT
+            value: "5000"
         resources:
           limits:
             memory: "128Mi"

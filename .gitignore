@@ -8,7 +8,7 @@ database
 .env
 secret.yaml
 .DS_Store
-
+key.txt
 # specific folders or files
 shared
 files

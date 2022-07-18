@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-env-variables
-  namespace: pingpong-log
-data:
-  postgres-pw: postgres

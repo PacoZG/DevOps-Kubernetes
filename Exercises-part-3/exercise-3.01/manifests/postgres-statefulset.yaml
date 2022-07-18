@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: postgres-svc
   namespace: pingpong-log
+  labels:
+    app: postgres
 spec:
   ports:
   - port: 5432
@@ -10,7 +12,9 @@ spec:
   clusterIP: None
   selector:
     app: postgres
+
 ---
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -33,12 +37,9 @@ spec:
           ports:
             - name: postgres
               containerPort: 5432
-          env:
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: config-env-variables
-                key: postgres-pw
+          envFrom:
+            - secretRef:
+                name: postgres-pw
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
@@ -48,7 +49,6 @@ spec:
         name: data
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: local-path
         resources:
           requests:
             storage: 100Mi
