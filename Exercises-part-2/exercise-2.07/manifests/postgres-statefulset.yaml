@@ -38,15 +38,12 @@ spec:
           envFrom:
             - secretRef:
                 name: postgres-pw
-          # env:
-          # - name: POSTGRES_PASSWORD
-          #   value: postgres
           volumeMounts:
-            - name: data
-              mountPath: /var/lib/postgresql/data
+            - name: database
+              mountPath: /var/lib/postgresql/database
   volumeClaimTemplates:
     - metadata:
-        name: data
+        name: database
       spec:
         accessModes: ["ReadWriteOnce"]
         storageClassName: local-path
