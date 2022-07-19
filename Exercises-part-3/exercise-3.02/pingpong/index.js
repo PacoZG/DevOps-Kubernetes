@@ -40,7 +40,7 @@ setTimeout(() => {
     const { rows } = await client.query('SELECT * FROM pongs')
     console.log(rows)
     if (rows.length === 0) {
-      await client.query('INSERT INTO pongs(id, val) VALUES(1,0)')
+      await client.query('INSERT INTO pongs(id, val) VALUES(1,0) ON CONFLICT DO NOTHING')
     }
     await client.end()
   })()
