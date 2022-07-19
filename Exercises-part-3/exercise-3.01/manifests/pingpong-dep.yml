@@ -15,14 +15,17 @@ spec:
     spec:
       containers:
       - name: pingpong
-        image: sirpacoder/pingpong:v2.07 # latest version of pingpong image
-        envFrom:
-          - secretRef:
-              name: postgres-pw
+        image: sirpacoder/pingpong:v3.01 # latest version of pingpong image
+        imagePullPolicy: Always
         env:
           - name: PORT
             value: "5000"
+          - name: POSTGRES_HOST
+            value: postgres-svc
+        envFrom:
+          - secretRef:
+              name: postgres-pw
         resources:
           limits:
-            memory: "128Mi"
+            memory: "516Mi"
             cpu: "500m"

@@ -41,12 +41,12 @@ spec:
             - secretRef:
                 name: postgres-pw
           volumeMounts:
-            - name: data
-              mountPath: /var/lib/postgresql/data
+            - name: database
+              mountPath: /var/lib/postgresql/database
               subPath: postgres
   volumeClaimTemplates:
     - metadata:
-        name: data
+        name: database
       spec:
         accessModes: ["ReadWriteOnce"]
         resources:

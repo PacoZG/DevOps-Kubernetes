@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacoder-svc
+  namespace: pingpong-log
+spec:
+  type: LoadBalancer # This should be the only unfamiliar part
+  selector:
+    app: pacoder
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3000
