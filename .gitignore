@@ -3,6 +3,7 @@ material-example
 node_modules
 data
 database
+postgres
 
 # files
 .env
