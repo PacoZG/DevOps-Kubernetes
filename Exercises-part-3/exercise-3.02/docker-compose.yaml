@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  writer:
+    platform: linux/amd64
+    image: writer:v3.02
+    container_name: writer
+    build:
+      context: ./log-output
+      dockerfile: Dockerfile.writer
+    ports:
+      - 3002:3002
+    volumes:
+      - ./shared/files:/usr/src/app/shared/files
+
+  reader:
+    platform: linux/amd64
+    image: reader:v3.02
+    container_name: reader
+    build:
+      context: ./log-output
+      dockerfile: Dockerfile.reader
+    ports:
+      - 3001:3001
+    volumes:
+      - ./shared/files:/usr/src/app/shared/files
+    environment:
+      - PINGPONG_URL=http://pingpong:5000/pingpong
+      - MESSAGE=Hello
+
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
+
+  pingpong:
+    platform: linux/amd64
+    image: pingpong:v3.02
+    container_name: pingpong
+    build:
+      context: ./pingpong
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_PORT=5432
+    depends_on:
+      - postgres
+
+volumes:
+    database:
+        driver: local
