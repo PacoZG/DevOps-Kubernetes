@@ -14,6 +14,7 @@ spec:
         app: pingpong
     spec:
       containers:
+
       - name: pingpong
         imagePullPolicy: Always
         image: sirpacoder/pingpong:v3.02

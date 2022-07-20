@@ -33,10 +33,7 @@ setTimeout(() => {
   ;(async () => {
     const client = connect()
     await client.connect()
-    await client.query(`CREATE TABLE IF NOT EXISTS pongs(
-        id SERIAL PRIMARY KEY,
-        val INT
-      );`)
+    await client.query(`CREATE TABLE IF NOT EXISTS pongs(id SERIAL PRIMARY KEY, val INT);`)
     const { rows } = await client.query('SELECT * FROM pongs')
     console.log(rows)
     if (rows.length === 0) {
@@ -54,35 +51,36 @@ const query = async query => {
   return rows
 }
 
+const updateCounter = async () => {
+  const rows = await query('SELECT val from pongs WHERE id=1')
+  await query(`UPDATE pongs SET val=${rows[0].val + 1}`)
+  return `${rows[0].val}`
+}
+
 app.use(cors())
 
 app.get('/health', (_, res) => {
   res.send('ok')
 })
 
-let counter = 0
-
 app.get('/', async (_, res) => {
   console.log('Request to root path / received')
-  const rows = await query('SELECT val from pongs WHERE id=1')
-  console.log('Root request: ', rows[0].val)
-  await query(`UPDATE pongs SET val=${rows[0].val + 1}`)
-  res.status(200).send(`${rows[0].val}`)
+  const result = await updateCounter()
+  console.log('Root request: ', result)
+  res.status(200).send(result)
 })
 
-app.get('/pingpong', async (req, res) => {
-  console.log(os.hostname().indexOf('local') > -1)
+app.get('/pingpong', async (_, res) => {
   console.log('Request to root path /pingpong received')
-  const rows = await query('SELECT val from pongs WHERE id=1')
-  await query(`UPDATE pongs SET val=${rows[0].val + 1}`)
-  res.status(200).send(`${rows[0].val}`)
+  const result = await updateCounter()
+  res.status(200).send(result)
 })
 
 app.get('/reset-count', async (_, res) => {
   await query(`UPDATE pongs SET val=0`)
   const rows = await query('SELECT val from pongs WHERE id=1')
   console.log('Counter value: ', rows[0].val)
-  res.status(200).send(`Counter resetted: pongs=${rows[0].val}`)
+  res.status(200).send(`Counter resetted: pongs = ${rows[0].val}`)
 })
 
 server.listen(PORT, () => {

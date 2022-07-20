@@ -2,7 +2,6 @@ version: '3.9'
 
 services:
   writer:
-    platform: linux/amd64
     image: writer:v3.02
     container_name: writer
     build:
@@ -14,7 +13,6 @@ services:
       - ./shared/files:/usr/src/app/shared/files
 
   reader:
-    platform: linux/amd64
     image: reader:v3.02
     container_name: reader
     build:
@@ -42,7 +40,6 @@ services:
       - ./database:/var/lib/postgresql/data
 
   pingpong:
-    platform: linux/amd64
     image: pingpong:v3.02
     container_name: pingpong
     build:
