@@ -1,54 +1,54 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: log-output-dep
-  namespace: pingpong-log
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: log-output
-  template:
-    metadata:
-      labels:
-        app: log-output
-    spec:
-      volumes:
-        - name: shared-files
-          emptyDir: {}
-      containers:
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: log-output-dep
+#   namespace: pingpong-log
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: log-output
+#   template:
+#     metadata:
+#       labels:
+#         app: log-output
+#     spec:
+#       volumes:
+#         - name: shared-files
+#           emptyDir: {}
+#       containers:
 
 
-      - name: writer
-        imagePullPolicy: Always
-        image: sirpacoder/writer:v3.02
-        volumeMounts:
-          - name: shared-files
-            mountPath: /usr/src/app/shared/files
-        resources:
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+#       - name: writer
+#         imagePullPolicy: Always
+#         image: sirpacoder/writer:v3.02
+#         volumeMounts:
+#           - name: shared-files
+#             mountPath: /usr/src/app/shared/files
+#         resources:
+#           limits:
+#             memory: "512Mi"
+#             cpu: "500m"
 
 
-      - name: reader
-        imagePullPolicy: Always
-        image: sirpacoder/reader:v3.02
-        env:
-        - name: PINGPONG_URL
-          valueFrom:
-            configMapKeyRef:
-              name: config-env-variables
-              key: pingpong_url
-        - name: MESSAGE
-          valueFrom:
-            configMapKeyRef:
-              name: config-env-variables
-              key: message
-        volumeMounts:
-          - name: shared-files
-            mountPath: /usr/src/app/shared/files
-        resources:
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+#       - name: reader
+#         imagePullPolicy: Always
+#         image: sirpacoder/reader:v3.02
+#         env:
+#         - name: PINGPONG_URL
+#           valueFrom:
+#             configMapKeyRef:
+#               name: config-env-variables
+#               key: pingpong_url
+#         - name: MESSAGE
+#           valueFrom:
+#             configMapKeyRef:
+#               name: config-env-variables
+#               key: message
+#         volumeMounts:
+#           - name: shared-files
+#             mountPath: /usr/src/app/shared/files
+#         resources:
+#           limits:
+#             memory: "512Mi"
+#             cpu: "500m"

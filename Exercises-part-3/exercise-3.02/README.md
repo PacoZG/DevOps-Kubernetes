@@ -4,7 +4,7 @@ gcloud auth login
 ?
 gcloud config get project
 
-gcloud config set project dwk-gke-355822
+gcloud config set project dwk-pong-log-171076
 gcloud services enable container.googleapis.com
 gcloud container clusters create dwk-cluster --zone=europe-north1-b --cluster-version=1.22
 
