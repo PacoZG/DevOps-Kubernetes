@@ -26,6 +26,9 @@ spec:
           - secretRef:
               name: postgres-pw
         resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
           limits:
             memory: "516Mi"
             cpu: "500m"

@@ -13,7 +13,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: reader-svc
+            name: log-output-svc
             port: 
               number: 80
       - path: /pingpong
