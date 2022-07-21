@@ -53,7 +53,7 @@ spec:
 ```
 ---
 declaration of resources needed to run the pods were needed to be reconfigured since I encounter many issues while trying to deploy the pods:
-### In all the deployment yaml file I did the following configuration:
+In all the deployment yaml files I did the following configuration:
 ```yaml
 ...
 
