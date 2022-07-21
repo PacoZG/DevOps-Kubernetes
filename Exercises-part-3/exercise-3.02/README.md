@@ -78,7 +78,7 @@ metadata:
   name: pingpong-svc
   namespace: pingpong-log
 spec:
-  type: NodePort # This should be the only unfamiliar part
+  type: NodePort
   selector:
     app: pingpong
   ports:
@@ -101,24 +101,6 @@ spec:
     - port: 80
       protocol: TCP
       targetPort: 3001
-```
----
-[pingpong-service.yaml](./manifests/pingpong-service.yaml)
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: pingpong-svc
-  namespace: pingpong-log
-spec:
-  type: LoadBalancer # This should be the only unfamiliar part
-  selector:
-    app: pingpong
-  ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 5000
 ```
 I decided to move the [config-map.yaml](./config-map.yaml) so that the variables won't have to be also deleted every time I run the ```$ kubectl delete -f manifests``` command.
 
