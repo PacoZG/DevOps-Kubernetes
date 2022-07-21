@@ -1,5 +1,5 @@
 
-# Exercise 3.01: Pingpong GKE
+# Exercise 3.02: Back to Ingress
 ## the following command, pingpong app and changes to the yaml files were implemented.
 ### Implementation of the endpoint ``` /pingpong ``` full implementation [here](./pingpong/index.js):
 ```js
