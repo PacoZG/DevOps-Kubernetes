@@ -250,9 +250,9 @@ and lastly we deploy all the manifests with the good old:
 $ kubectl apply -f manifests
 ```
 
-The image of the writer can be found [here](https://hub.docker.com/r/sirpacoder/client)
+The image of the client can be found [here](https://hub.docker.com/r/sirpacoder/client)
 
-The image of the reader can be found [here](https://hub.docker.com/r/sirpacoder/server)
+The image of the server can be found [here](https://hub.docker.com/r/sirpacoder/server)
 
 The image of the cronjob can be found [here](https://hub.docker.com/r/sirpacoder/wiki_url)
 

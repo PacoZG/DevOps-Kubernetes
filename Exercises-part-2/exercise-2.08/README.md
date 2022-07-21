@@ -196,9 +196,9 @@ and lastly we deploy all the manifests with the good old:
 $ kubectl apply -f manifests
 ```
 
-The image of the hash writer can be found [here](https://hub.docker.com/r/sirpacoder/client)
+The image of the hash client can be found [here](https://hub.docker.com/r/sirpacoder/client)
 
-The image of the hash reader can be found [here](https://hub.docker.com/r/sirpacoder/server)
+The image of the hash server can be found [here](https://hub.docker.com/r/sirpacoder/server)
 
 We can open the UI on the [http://localhost:8081](http://localhost:8081) port from the broswer
 

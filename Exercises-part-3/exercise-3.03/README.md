@@ -10,9 +10,9 @@ In order to limit the length of the todo I ahd to refactor and implement limitat
 ---
 The rest of the manifests and project can be found [here](./project)
 
-The image of the hash client can be found [here](https://hub.docker.com/r/sirpacoder/client)
+The image of the hash writer can be found [here](https://hub.docker.com/r/sirpacoder/client)
 
-The image of the hash server can be found [here](https://hub.docker.com/r/sirpacoder/server)
+The image of the hash reader can be found [here](https://hub.docker.com/r/sirpacoder/server)
 
 We can open the UI on the [http://localhost:8081](http://localhost:8081) port from the broswer
 
