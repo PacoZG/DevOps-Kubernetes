@@ -1,4 +1,4 @@
-# Exercise 3.01: Pingpong GKE
+# Exercise 3.02: Back to Ingress
 
 ## After running all the commands necessary to login, create a project and create a cluster in google cloud...
 ```
