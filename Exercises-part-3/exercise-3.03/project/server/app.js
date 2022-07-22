@@ -2,6 +2,7 @@ require('express-async-errors')
 const express = require('express')
 const cors = require('cors')
 const config = require('./utils/config')
+const middleware = require('./utils/middleware')
 
 const app = express()
 
@@ -23,6 +24,11 @@ setTimeout(() => {
 }, 5000)
 
 const todoappRouter = require('./controllers/todos')
+
+app.use(middleware.tokenExtractor)
+app.use(middleware.serverURL)
+app.use(middleware.requestLogger)
+app.use(middleware.errorHandler)
 
 app.use(cors())
 app.use(express.json())

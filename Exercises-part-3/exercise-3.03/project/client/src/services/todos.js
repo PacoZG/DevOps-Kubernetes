@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseurl = `${process.env.REACT_APP_SERVER_URL}`
+const baseurl = process.env.REACT_APP_SERVER_URL || window.location.origin
 
 console.log({ baseurl })
 

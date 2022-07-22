@@ -5,4 +5,4 @@ metadata:
   namespace: project
 data:
   postgres-host: postgres-svc
-  server-url: http://localhost:80
+  server-url: http://server-svc:80/api/todos
