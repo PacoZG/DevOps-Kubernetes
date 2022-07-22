@@ -20,7 +20,7 @@ setTimeout(() => {
     )
     await client.end()
   })()
-}, 2000)
+}, 5000)
 
 const todoappRouter = require('./controllers/todos')
 
@@ -29,7 +29,7 @@ app.use(express.json())
 app.use(express.static('build'))
 app.use('/api/todos', todoappRouter)
 
-app.get('/health', (req, res) => {
+app.get('/health', (_, res) => {
   res.send('ok')
 })
 

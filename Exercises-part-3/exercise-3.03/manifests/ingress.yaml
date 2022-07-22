@@ -15,18 +15,18 @@ spec:
           service:
             name: client-svc
             port: 
-              number: 6661
+              number: 80
       - path: /api/todos
         pathType: Prefix
         backend:
           service:
             name: server-svc
             port:
-              number: 6662
+              number: 80
       - path: /health
         pathType: Prefix
         backend:
           service:
             name: server-svc
             port:
-              number: 6662
+              number: 80

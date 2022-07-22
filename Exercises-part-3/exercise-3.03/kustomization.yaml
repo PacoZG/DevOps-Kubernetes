@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- manifests/client-dep.yaml
+- manifests/client-serv.yaml
+- manifests/config-map.yaml
+- manifests/cronjob-curl.yaml
+- manifests/ingress.yaml
+- manifests/postgres-statefulset.yaml
+- manifests/server-dep.yaml
+- manifests/server-serv.yaml
