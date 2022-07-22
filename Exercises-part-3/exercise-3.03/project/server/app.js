@@ -39,4 +39,8 @@ app.get('/health', (_, res) => {
   res.send('ok')
 })
 
+app.get('/', (_, res) => {
+  res.status(200).send('ok')
+})
+
 module.exports = app

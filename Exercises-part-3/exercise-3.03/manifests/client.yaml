@@ -18,12 +18,12 @@ spec:
       - name: client
         image: sirpacoder/client:v3.03
         imagePullPolicy: Always
-        env:
-          - name: REACT_APP_SERVER_URL
-            valueFrom:
-              configMapKeyRef:
-                name: config-env-variables
-                key: server-url
+        # env:
+        #   - name: REACT_APP_SERVER_URL
+        #     valueFrom:
+        #       configMapKeyRef:
+        #         name: config-env-variables
+        #         key: server-url
         resources:
           requests:
             memory: "64Mi"
