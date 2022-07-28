@@ -4,7 +4,7 @@ metadata:
   name: wiki-url
   namespace: project
 spec:
-  schedule: "* 10 * * *"
+  schedule: '00 10 * * *' # New wiki URL everyday at 10:00
   jobTemplate:
     spec:
       template:

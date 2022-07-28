@@ -170,7 +170,7 @@ spec:
               number: 6662
 ```
 ---
-The rest of the manifests and project can be found [here](./project)
+The rest of the manifests and project can be found [here](./project/manifests/)
 
 Script to create de cluster
 ```

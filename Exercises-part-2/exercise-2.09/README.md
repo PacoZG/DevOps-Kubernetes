@@ -224,7 +224,7 @@ spec:
           restartPolicy: OnFailure
 ```
 ---
-The rest of the manifests and project can be found [here](./project)
+The rest of the manifests and project can be found [here](./manifests/)
 
 Script to create de cluster
 ```
