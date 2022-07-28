@@ -5,7 +5,7 @@ Configuration of the [workflow](./delete.yaml) to delete environments from the b
 name: Delete branch environment
 
 on:
-  push:
+  delete:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
