@@ -1,6 +1,6 @@
 # Exercise 3.04: Project v1.4.1
 
-Configuration of the [workflow](./main.yaml) to run over indivitual branches with their own environments
+Configuration of the [workflow](./main.yaml) to run over individual branches with their own environments
 ```yaml
 name: Release application
 
