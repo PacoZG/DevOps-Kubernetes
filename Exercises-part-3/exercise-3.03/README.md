@@ -104,7 +104,7 @@ jobs:
 ```
 
 ---
-The manifests and project can be found [here](./manifests/)
+The manifests can be found [here](./manifests/)
 
 The full Project can be found [here](https://github.com/PacoZG/dwk-project)
 
