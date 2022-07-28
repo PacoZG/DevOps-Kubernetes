@@ -15,25 +15,18 @@ spec:
         app: client
     spec:
       containers:
-      - name: client
-        image: sirpacoder/client:v3.03
-        imagePullPolicy: Always
-        # env:
-        #   - name: REACT_APP_SERVER_URL
-        #     valueFrom:
-        #       configMapKeyRef:
-        #         name: config-env-variables
-        #         key: server-url
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "516Mi"
-            cpu: "500m"
+        - name: client
+          image: CLIENT/IMAGE
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '516Mi'
+              cpu: '500m'
 
 ---
-
 # Service
 apiVersion: v1
 kind: Service
@@ -45,6 +38,6 @@ spec:
   selector:
     app: client
   ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 3000
+    - port: 80
+      protocol: TCP
+      targetPort: 3000

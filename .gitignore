@@ -10,6 +10,8 @@ postgres
 secret.yaml
 .DS_Store
 key.txt
+private-key.json
+
 # specific folders or files
 shared
 files

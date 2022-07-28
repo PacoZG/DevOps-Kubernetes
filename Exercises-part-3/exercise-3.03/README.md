@@ -6,6 +6,23 @@
 ```
 $ kustomize edit add resource manifests/*.yaml
 
+$ kubectl apply -k .
+
+$ kubectl kustomize .
+```
+
+### Command for workflow configuration
+```
+$ gcloud iam service-accounts keys create ./private-key.json \
+    --iam-account=github-actions@dwk-gke-<id_number>.iam.gserviceaccount.com
+```
+Output:
+```
+created key [f4d6c7ed4b6939fcf67b144479e38e4ceeb7c3cf] of type [json] as [./private-key.json] for [github-actions@dwk-gke-<id_number>.iam.gserviceaccount.com]
+
+```
+### Cluster deployment to GCloud before running the github workflow
+```
 $ kubectl apply -f project-space.yaml
 
 $ kubectl config set-context --current --namespace=project
@@ -16,7 +33,9 @@ $ sops --decrypt secret.enc.yaml | kubectl apply -f -
 ```
 
 ---
-The rest of the manifests and project can be found [here](./project)
+The manifests and project can be found [here](./manifests/)
+
+The full Project can be found [here](https://github.com/PacoZG/dwk-project)
 
 The image of the hash writer can be found [here](https://hub.docker.com/r/sirpacoder/client)
 

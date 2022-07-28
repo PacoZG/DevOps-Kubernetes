@@ -250,6 +250,11 @@ and lastly we deploy all the manifests with the good old:
 $ kubectl apply -f manifests
 ```
 
+To get the pods from the namespace:
+```
+$ kubectl config set-context --current --namespace=project
+```
+
 The image of the client can be found [here](https://hub.docker.com/r/sirpacoder/client)
 
 The image of the server can be found [here](https://hub.docker.com/r/sirpacoder/server)
