@@ -12,8 +12,8 @@ spec:
           containers:
           - name: wiki-url
             image: sirpacoder/wiki_url:v3.03
+            imagePullPolicy: Always
             env:
               - name: SERVER_URL
-                value: http://server-svc:80/api/todos
-            imagePullPolicy: Always
+                value: http://server-svc:80/api/todoss
           restartPolicy: OnFailure

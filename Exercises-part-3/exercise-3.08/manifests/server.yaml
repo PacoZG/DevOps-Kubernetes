@@ -16,6 +16,7 @@ spec:
       containers:
       - name: server
         image: sirpacoder/server:v3.03
+        imagePullPolicy: Always
         env:
           - name: POSTGRES_HOST
             valueFrom:
