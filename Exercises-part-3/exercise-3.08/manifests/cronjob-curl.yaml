@@ -11,7 +11,7 @@ spec:
         spec:
           containers:
           - name: wiki-url
-            image: sirpacoder/wiki_url:v2.09
+            image: sirpacoder/wiki_url:v3.03
             env:
               - name: SERVER_URL
                 value: http://server-svc:80/api/todos
