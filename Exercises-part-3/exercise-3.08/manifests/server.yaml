@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-dep
+  namespace: project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - name: server
+        image: sirpacoder/server:v3.03
+        env:
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: config-env-variables
+                key: postgres-host
+        envFrom:
+          - secretRef:
+              name: postgres-pw
+        resources:
+          requests:
+            memory: '64Mi'
+            cpu: '250m'
+          limits:
+            memory: '516Mi'
+            cpu: '500m'
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-svc
+  namespace: project
+spec:
+  type: ClusterIP
+  selector:
+    app: server
+  ports:
+  - name: server
+    port: 80
+    protocol: TCP
+    targetPort: 3001

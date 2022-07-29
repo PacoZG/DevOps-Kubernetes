@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: wiki-url
+  namespace: project
+spec:
+  schedule: '00 10 * * *' # New wiki URL everyday at 10:00
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: wiki-url
+            image: sirpacoder/wiki_url:v2.09
+            env:
+              - name: SERVER_URL
+                value: http://server-svc:6662/api/todos
+            imagePullPolicy: Always
+          restartPolicy: OnFailure
