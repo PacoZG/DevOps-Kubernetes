@@ -1,6 +1,6 @@
 # Exercise 3.08: Project v1.5
 
-## It made sense to only scale the server since it is the side of the application that can deal with multiple request and also because of the time that takes for the clinet to deploy in the cluster it just stays in a failing loop.
+## It made sense to scale the server and the postgre deployments since we want those pods to be always available.
 configuration of the client deployment [file](./manifests/horizontalpodautoscaler.yaml)
 ```yaml
 apiVersion: autoscaling/v1
@@ -17,136 +17,46 @@ spec:
   maxReplicas: 6
   targetCPUUtilizationPercentage: 50
 
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: postgres-hpa
+  namespace: project
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: postgres-ss
+  minReplicas: 1
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 50
 ```
 ---
+
+### As to the resources requierements and limits, I have set them to the following on both the client and server deployments
 configuration of the server deployment [file](./project/manifests/server-dep.yaml)
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-dep
-  namespace: project
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: server
-  template:
-    metadata:
-      labels:
-        app: server
-    spec:
-      containers:
-      - name: server
-        image: sirpacoder/server:v2.08
-        env:
-          - name: POSTGRES_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: config-env-variables
-                key: postgres-host
-        envFrom:
-          - secretRef:
-              name: postgres-pw
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-```
----
-postgres stateful [file](./project/manifests/postgres-statefulset.yaml)
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres-svc
-  namespace: project
-  labels:
-    app: postgres
-spec:
-  ports:
-  - port: 5432
-    name: web
-  clusterIP: None
-  selector:
-    app: postgres
----
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: postgres-ss
-  namespace: project
-spec:
-  serviceName: postgres
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgres
-  template:
-    metadata:
-      labels:
-        app: postgres
-    spec:
-      containers:
-        - name: postgres
-          image: postgres:13.0
-          ports:
-            - name: postgres
-              containerPort: 5432
-          envFrom:
-            - secretRef:
-                name: postgres-pw
-          volumeMounts:
-            - name: data
-              mountPath: /var/lib/postgresql/data
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        storageClassName: local-path
+
+...
+
         resources:
           requests:
-            storage: 100Mi
+            memory: '64Mi'
+            cpu: '250m'
+          limits:
+            memory: '516Mi'
+            cpu: '500m'
 ```
+I have been using this resouce configuration since the beginning of third part due to the problems I was facing with the deploying to GKE cluster. 
 
-Including health check to the backend in kubernetes:
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: project
-  namespace: project
-  labels:
-    name: project
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: client-svc
-            port: 
-              number: 6661
-      - path: /api/todos
-        pathType: Prefix
-        backend:
-          service:
-            name: server-svc
-            port:
-              number: 6662
-      - path: /health
-        pathType: Prefix
-        backend:
-          service:
-            name: server-svc
-            port:
-              number: 6662
-```
 ---
-The rest of the manifests and project can be found [here](./project/manifests/)
+The manifests for the local deployment can be found [here](./manifests/)
+
+The manifests for the gcloud deployment can be found [here](https://github.com/PacoZG/dwk-project/tree/main/manifests)
 
 Script to create de cluster
 ```
