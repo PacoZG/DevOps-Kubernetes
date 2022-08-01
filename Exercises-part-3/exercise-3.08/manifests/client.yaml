@@ -25,11 +25,11 @@ spec:
                 key: server-url
         resources:
           requests:
+            memory: '32Mi'
+            cpu: '200m'
+          limits:
             memory: '64Mi'
             cpu: '250m'
-          limits:
-            memory: '516Mi'
-            cpu: '500m'
 
 ---
 
