@@ -59,10 +59,6 @@ const updateCounter = async () => {
 
 app.use(cors())
 
-app.get('/healthz', (_, res) => {
-  res.status(200).send('ok')
-})
-
 app.get('/', async (_, res) => {
   console.log('Request to root path / received')
   const result = await updateCounter()
@@ -81,6 +77,16 @@ app.get('/reset-count', async (_, res) => {
   const rows = await query('SELECT val from pongs WHERE id=1')
   console.log('Counter value: ', rows[0].val)
   res.status(200).send(`Counter resetted: pongs = ${rows[0].val}`)
+})
+
+app.get('/healthz', async (_, res) => {
+  try {
+    const rows = await query('SELECT val from pongs WHERE id=1')
+    console.log('Counter value: ', rows[0].val)
+    res.status(200).send('Application ready')
+  } catch (error) {
+    res.status(500).send('Application not Ready')
+  }
 })
 
 server.listen(PORT, () => {

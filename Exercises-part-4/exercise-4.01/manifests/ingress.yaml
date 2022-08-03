@@ -9,7 +9,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /log
+        pathType: Prefix
+        backend:
+          service:
+            name: log-output-svc
+            port: 
+              number: 80
+      - path: /healthz
         pathType: Prefix
         backend:
           service:
@@ -24,13 +31,6 @@ spec:
             port: 
               number: 80
       - path: /reset-count
-        pathType: Prefix
-        backend:
-          service:
-            name: pingpong-svc
-            port: 
-              number: 80
-      - path: /healthz
         pathType: Prefix
         backend:
           service:

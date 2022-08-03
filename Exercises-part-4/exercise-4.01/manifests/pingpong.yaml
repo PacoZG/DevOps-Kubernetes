@@ -25,6 +25,13 @@ spec:
         envFrom:
           - secretRef:
               name: postgres-pw
+        readinessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          failureThreshold: 10
+          httpGet:
+            path: /healthz
+            port: 5000
         resources:
           requests:
             memory: "64Mi"
@@ -32,12 +39,6 @@ spec:
           limits:
             memory: "516Mi"
             cpu: "500m"
-        readinessProbe:
-          initialDelaySeconds: 10 # Initial delay until the readiness is tested
-          periodSeconds: 5 # How often to test
-          httpGet:
-              path: /healthz
-              port: 5000
 
 ---
 

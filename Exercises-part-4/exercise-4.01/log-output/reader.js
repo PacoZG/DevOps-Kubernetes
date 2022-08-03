@@ -9,8 +9,10 @@ const app = express()
 const server = http.createServer(app)
 
 const PORT = process.env.PORT || 3001
-const PINGPONG_URL = process.env.PINGPONG_URL || 'http://localhost:5000/pingpong'
+const PINGPONG_URL = process.env.PINGPONG_URL || 'http://localhost:5000'
 const message = process.env.MESSAGE || 'No message read from configmap'
+
+console.log({ PINGPONG_URL })
 
 const getHash = async () => {
   try {
@@ -24,10 +26,10 @@ const getHash = async () => {
 
 app.use(express.json())
 
-app.use('/', async (_, res) => {
+app.use('/log', async (_, res) => {
   const hash = await getHash()
   console.log(`GET PONG request to ${PINGPONG_URL} from localhost:${PORT} done succesfully`)
-  const result = await axios.get(`${PINGPONG_URL}`)
+  const result = await axios.get(`${PINGPONG_URL}/pingpong`)
   res.status(200).send(`
     <div>
       <p>${message}</p>
@@ -37,8 +39,13 @@ app.use('/', async (_, res) => {
     </div>`)
 })
 
-app.get('/healthz', (_, res) => {
-  res.status(200).send('ok')
+app.get('/healthz', async (_, res) => {
+  try {
+    await axios.get(`${PINGPONG_URL}/healthz`)
+    res.status(200).send('Application ready')
+  } catch (error) {
+    res.status(500).send('Application not Ready')
+  }
 })
 
 server.listen(PORT, () => {

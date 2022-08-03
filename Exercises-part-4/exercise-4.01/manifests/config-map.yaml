@@ -4,5 +4,5 @@ metadata:
   name: config-env-variables
   namespace: pingpong-log
 data:
-  pingpong_url: http://pingpong-svc:80/pingpong
+  pingpong_url: http://pingpong-svc:80
   message: Hello

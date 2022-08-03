@@ -23,7 +23,7 @@ services:
     volumes:
       - ./shared/files:/usr/src/app/shared/files
     environment:
-      - PINGPONG_URL=http://pingpong:5000/pingpong
+      - PINGPONG_URL=http://pingpong:5000
       - MESSAGE=Hello
 
   postgres:
