@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingpong-dep
+  namespace: pingpong-log
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pingpong
+  template:
+    metadata:
+      labels:
+        app: pingpong
+    spec:
+      containers:
+      - name: pingpong
+        image: sirpacoder/pingpong:v4.01
+        imagePullPolicy: Always
+        env:
+          - name: PORT
+            value: "5000"
+          - name: POSTGRES_HOST
+            value: postgres-svc
+        envFrom:
+          - secretRef:
+              name: postgres-pw
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "516Mi"
+            cpu: "500m"
+        readinessProbe:
+          initialDelaySeconds: 10 # Initial delay until the readiness is tested
+          periodSeconds: 5 # How often to test
+          httpGet:
+              path: /healthz
+              port: 5000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: pingpong-svc
+  namespace: pingpong-log
+spec:
+  type: ClusterIP
+  selector:
+    app: pingpong
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 5000

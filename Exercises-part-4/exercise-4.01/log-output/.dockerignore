@@ -1,0 +1,4 @@
+docker-compose.yml
+Dockerfile.writer
+Dockerfile.reader
+node_modules
