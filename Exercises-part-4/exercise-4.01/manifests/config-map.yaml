@@ -6,3 +6,5 @@ metadata:
 data:
   pingpong_url: http://pingpong-svc:80
   message: Hello
+  postgres_user: postgres
+  postgres_db: postgres

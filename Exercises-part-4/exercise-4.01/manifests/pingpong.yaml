@@ -22,6 +22,16 @@ spec:
             value: "5000"
           - name: POSTGRES_HOST
             value: postgres-svc
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: config-env-variables
+                key: postgres_user
+          - name: POSTGRES_DB
+            valueFrom:
+              configMapKeyRef:
+                name: config-env-variables
+                key: postgres_db
         envFrom:
           - secretRef:
               name: postgres-pw

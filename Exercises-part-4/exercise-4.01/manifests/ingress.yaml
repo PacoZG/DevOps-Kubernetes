@@ -16,13 +16,6 @@ spec:
             name: log-output-svc
             port: 
               number: 80
-      - path: /healthz
-        pathType: Prefix
-        backend:
-          service:
-            name: log-output-svc
-            port: 
-              number: 80
       - path: /pingpong
         pathType: Prefix
         backend:

@@ -15,11 +15,11 @@ const password = process.env.POSTGRES_PASSWORD
 
 const connect = () => {
   const client = new Client({
-    user: process.env.POSTGRES_USER || 'postgres',
+    user: process.env.POSTGRES_USER,
     port: process.env.POSTGRES_PORT || 5432,
     host: process.env.POSTGRES_HOST || 'localhost',
-    database: process.env.POSTGRES_DB || 'postgres',
-    password: process.env.POSTGRES_PASSWORD || 'postgres',
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
     max: 10,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 3000,
@@ -81,10 +81,11 @@ app.get('/reset-count', async (_, res) => {
 
 app.get('/healthz', async (_, res) => {
   try {
-    const rows = await query('SELECT val from pongs WHERE id=1')
-    console.log('Counter value: ', rows[0].val)
+    await query('SELECT val from pongs WHERE id=1')
+    console.log(`Received a request to healthz and responding with status 200`)
     res.status(200).send('Application ready')
   } catch (error) {
+    console.log(`Received a request to healthz and responding with status 500`)
     res.status(500).send('Application not Ready')
   }
 })

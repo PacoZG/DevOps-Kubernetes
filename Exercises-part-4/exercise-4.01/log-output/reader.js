@@ -42,8 +42,10 @@ app.use('/log', async (_, res) => {
 app.get('/healthz', async (_, res) => {
   try {
     await axios.get(`${PINGPONG_URL}/healthz`)
+    console.log(`Received a request to healthz and responding with status 200`)
     res.status(200).send('Application ready')
   } catch (error) {
+    console.log(`Received a request to healthz and responding with status 500`)
     res.status(500).send('Application not Ready')
   }
 })
