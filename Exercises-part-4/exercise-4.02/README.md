@@ -1,7 +1,32 @@
 
 # Exercise 4.02: Project v1.7
 
-After doing the following changes to the [server.yaml](./manifests/server.yaml) file
+After doing the following changes to the [client.yaml](./manifests/client.yaml) file
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-dep
+  namespace: project
+
+...
+
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 3000
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '516Mi'
+              cpu: '500m'
+```
+and [server.yaml](./manifests/server.yaml) file
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -34,7 +59,42 @@ metadata:
 ```
 ### The rest of the `manifests` can be found [here](./manifests/)
 
-And running the manifests with a wrong `POSTGRES_USER` we can see the following on the terminal by running kubectl describe pod server-dep-...
+And running the manifests with a wrong `POSTGRES_USER` we can see the following on the terminal by running kubectl describe pod client-dep-...
+
+```
+Name:         client-dep-7b6946d9b9-97wfh
+Namespace:    project
+Priority:     0
+Node:         k3d-k3s-default-agent-1/172.18.0.2
+Start Time:   Fri, 05 Aug 2022 15:23:22 +0300
+
+...
+
+    Readiness:    http-get http://:3000/healthz delay=10s timeout=1s period=5s #success=1 #failure=10
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-9km9m (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+
+...
+
+Events:
+  Type     Reason     Age               From               Message
+  ----     ------     ----              ----               -------
+  Normal   Scheduled  44s               default-scheduler  Successfully assigned project/client-dep-7b6946d9b9-97wfh to k3d-k3s-default-agent-1
+  Normal   Pulling    44s               kubelet            Pulling image "sirpacoder/client:v4.02"
+  Normal   Pulled     42s               kubelet            Successfully pulled image "sirpacoder/client:v4.02" in 1.556297292s
+  Normal   Created    42s               kubelet            Created container client
+  Normal   Started    42s               kubelet            Started container client
+  Warning  Unhealthy  9s (x5 over 29s)  kubelet            Readiness probe failed: Get "http://10.42.1.77:3000/healthz": dial tcp 10.42.1.77:3000: connect: connection refused
+  Warning  Unhealthy  3s                kubelet            Readiness probe failed: Get "http://10.42.1.77:3000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+```
+And the following on the when running kubectl logs server-dep-...
 
 ```
 Name:         server-dep-554df65bfd-vqftg
