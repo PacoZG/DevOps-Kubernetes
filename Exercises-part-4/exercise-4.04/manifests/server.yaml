@@ -1,0 +1,82 @@
+# Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: server-dep
+  namespace: project
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: server
+  strategy:
+    canary:
+      steps:
+      - setWeight: 25
+      - analysis:
+          templates:
+          - templateName: restart-rate
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: server
+          image: sirpacoder/server:v4.02
+          imagePullPolicy: Always
+          env:
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: config-env-variables
+                  key: postgres-host
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: config-env-variables
+                  key: postgres_user
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: config-env-variables
+                  key: postgres_db
+          envFrom:
+            - secretRef:
+                name: postgres-pw
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 10
+            httpGet:
+              path: /healthz
+              port: 3001
+          livenessProbe:
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            httpGet:
+              path: /healthz
+              port: 3001
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '516Mi'
+              cpu: '500m'
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-svc
+  namespace: project
+spec:
+  type: ClusterIP
+  selector:
+    app: server
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 3001
