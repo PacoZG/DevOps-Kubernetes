@@ -11,6 +11,8 @@ secret.yaml
 .DS_Store
 key.txt
 private-key.json
+.prettierignore
+.prettierrc.json
 
 # specific folders or files
 shared
