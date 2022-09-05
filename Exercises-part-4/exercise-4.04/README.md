@@ -22,6 +22,7 @@ spec:
 ```
 
 Result of the query on Prometheus
+
 ![img](./screenshot.png)
 
 The image of the client can be found [here](https://hub.docker.com/r/sirpacoder/client)
