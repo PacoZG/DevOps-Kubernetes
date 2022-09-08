@@ -31,18 +31,18 @@ spec:
           image: sirpacoder/client:v4.06
           imagePullPolicy: Always
           readinessProbe:
-            initialDelaySeconds: 30
-            periodSeconds: 20
+            initialDelaySeconds: 10
+            periodSeconds: 5
             failureThreshold: 10
             httpGet:
               path: /healthz
               port: 3000
           resources:
             requests:
-              memory: '64Mi'
-              cpu: '250m'
+              memory: '1Gi'
+              cpu: '500m'
             limits:
-              memory: '516Mi'
+              memory: '10Gi'
               cpu: '500m'
 
 ---
